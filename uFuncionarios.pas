@@ -1,4 +1,4 @@
-unit uClientes;
+unit uFuncionarios;
 
 interface
 
@@ -8,23 +8,21 @@ uses
   Vcl.ExtCtrls;
 
 type
-  TfrmClientes = class(TForm)
+  TfrmFuncionarios = class(TForm)
+    lblFuncionarios: TLabel;
     lblNome: TLabel;
-    DBEdit2: TDBEdit;
+    DBEdit1: TDBEdit;
     lblEndereco: TLabel;
-    DBEdit3: TDBEdit;
+    DBEdit2: TDBEdit;
     lblCidade: TLabel;
-    DBEdit4: TDBEdit;
+    DBEdit3: TDBEdit;
     lblTelefone: TLabel;
-    DBEdit5: TDBEdit;
+    DBEdit4: TDBEdit;
     lblSexo: TLabel;
+    DBEdit5: TDBEdit;
+    lblAtivo: TLabel;
     DBEdit6: TDBEdit;
-    lblemail: TLabel;
-    DBEdit7: TDBEdit;
-    lblDataNascimento: TLabel;
-    DBEdit8: TDBEdit;
-    lblClientes: TLabel;
-    DBNavigator: TDBNavigator;
+    DBNavigator1: TDBNavigator;
   private
     { Private declarations }
   public
@@ -32,10 +30,10 @@ type
   end;
 
 var
-  frmClientes: TfrmClientes;
+  frmFuncionarios: TfrmFuncionarios;
 
 implementation
-Uses
+USES
   dmGlobal;
 
 {$R *.dfm}

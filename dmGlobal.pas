@@ -11,6 +11,7 @@ type
     IBTransaction: TIBTransaction;
     IBDataSet: TIBDataSet;
     DataSource: TDataSource;
+    IBDataSetID: TIntegerField;
     IBDataSetNOME: TIBStringField;
     IBDataSetENDERECO: TIBStringField;
     IBDataSetCIDADE: TIBStringField;
@@ -19,7 +20,24 @@ type
     IBDataSetEMAIL: TIBStringField;
     IBDataSetDNASC: TDateField;
     IBDataSetID_FUNCIONARIO: TIntegerField;
-    IBDataSetID: TIntegerField;
+    IBDataSetFuncionario: TIBDataSet;
+    DataSourceFuncionarios: TDataSource;
+    IBDataSetFuncionarioNOME: TIBStringField;
+    IBDataSetFuncionarioENDERECO: TIBStringField;
+    IBDataSetFuncionarioCIDADE: TIBStringField;
+    IBDataSetFuncionarioTELEFONE: TIBStringField;
+    IBDataSetFuncionarioSEXO: TIBStringField;
+    IBDataSetFuncionarioATIVO: TIBStringField;
+    DataSourceItens: TDataSource;
+    IBDataSetItens: TIBDataSet;
+    IBDataSetItensDESCRICAO: TIBStringField;
+    IBDataSetItensVALOR: TIBBCDField;
+    IBDataSetPistas: TIBDataSet;
+    DataSourcePistas: TDataSource;
+    IBDataSetPistasDESCRICAO: TIBStringField;
+    IBDataSetPistasDISPONIVEL: TIBStringField;
+    IBDataSetPistasMANUTENCAO: TIBStringField;
+    IBDataSetPistasID: TIntegerField;
   private
     { Private declarations }
   public

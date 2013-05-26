@@ -13,7 +13,7 @@ object frmClientes: TfrmClientes
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Label2: TLabel
+  object lblNome: TLabel
     Left = 8
     Top = 48
     Width = 27
@@ -21,7 +21,7 @@ object frmClientes: TfrmClientes
     Caption = 'Nome'
     FocusControl = DBEdit2
   end
-  object Label3: TLabel
+  object lblEndereco: TLabel
     Left = 8
     Top = 88
     Width = 45
@@ -29,7 +29,7 @@ object frmClientes: TfrmClientes
     Caption = 'Endere'#231'o'
     FocusControl = DBEdit3
   end
-  object Label4: TLabel
+  object lblCidade: TLabel
     Left = 8
     Top = 128
     Width = 33
@@ -37,7 +37,7 @@ object frmClientes: TfrmClientes
     Caption = 'Cidade'
     FocusControl = DBEdit4
   end
-  object Label5: TLabel
+  object lblTelefone: TLabel
     Left = 8
     Top = 168
     Width = 42
@@ -45,7 +45,7 @@ object frmClientes: TfrmClientes
     Caption = 'Telefone'
     FocusControl = DBEdit5
   end
-  object Label6: TLabel
+  object lblSexo: TLabel
     Left = 8
     Top = 208
     Width = 24
@@ -53,7 +53,7 @@ object frmClientes: TfrmClientes
     Caption = 'Sexo'
     FocusControl = DBEdit6
   end
-  object Label7: TLabel
+  object lblemail: TLabel
     Left = 8
     Top = 248
     Width = 28
@@ -61,7 +61,7 @@ object frmClientes: TfrmClientes
     Caption = 'E-mail'
     FocusControl = DBEdit7
   end
-  object Label8: TLabel
+  object lblDataNascimento: TLabel
     Left = 8
     Top = 288
     Width = 96

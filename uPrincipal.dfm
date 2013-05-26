@@ -19,6 +19,7 @@ object frmPrincipal: TfrmPrincipal
     Width = 85
     Height = 85
     Caption = 'Clientes'
+    ImageIndex = 1
     TabOrder = 0
     OnClick = btnClientesClick
   end
@@ -29,6 +30,7 @@ object frmPrincipal: TfrmPrincipal
     Height = 85
     Caption = 'Pistas'
     TabOrder = 1
+    OnClick = btnPistasClick
   end
   object btnFuncionarios: TButton
     Left = 136
@@ -37,6 +39,7 @@ object frmPrincipal: TfrmPrincipal
     Height = 85
     Caption = 'Funcion'#225'rios'
     TabOrder = 2
+    OnClick = btnFuncionariosClick
   end
   object btnItens: TButton
     Left = 136
@@ -45,5 +48,6 @@ object frmPrincipal: TfrmPrincipal
     Height = 85
     Caption = 'Itens'
     TabOrder = 3
+    OnClick = btnItensClick
   end
 end

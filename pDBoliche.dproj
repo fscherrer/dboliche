@@ -95,6 +95,18 @@
             <Form>frmClientes</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="uFuncionarios.pas">
+            <Form>frmFuncionarios</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uItens.pas">
+            <Form>frmItens</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="uPistas.pas">
+            <Form>frmPistas</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>

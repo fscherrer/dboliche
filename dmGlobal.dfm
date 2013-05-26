@@ -111,7 +111,176 @@ object DataModuleGlobal: TDataModuleGlobal
   end
   object DataSource: TDataSource
     DataSet = IBDataSet
-    Left = 272
-    Top = 24
+    Left = 320
+    Top = 32
+  end
+  object IBDataSetFuncionario: TIBDataSet
+    Database = IBDatabase
+    Transaction = IBTransaction
+    BufferChunks = 1000
+    CachedUpdates = False
+    InsertSQL.Strings = (
+      'INSERT INTO FUNCIONARIOS'
+      '('
+      '  NOME,'
+      '  ENDERECO,'
+      '  CIDADE,'
+      '  TELEFONE,'
+      '  SEXO,'
+      '  ATIVO'
+      ')'
+      'VALUES'
+      '('
+      '  :"NOME",'
+      '  :"ENDERECO",'
+      '  :"CIDADE",'
+      '  :"TELEFONE",'
+      '  :"SEXO",'
+      '  :"ATIVO"'
+      ');')
+    SelectSQL.Strings = (
+      'select * from FUNCIONARIOS')
+    ParamCheck = True
+    UniDirectional = False
+    Left = 192
+    Top = 88
+    object IBDataSetFuncionarioNOME: TIBStringField
+      FieldName = 'NOME'
+      Origin = '"FUNCIONARIOS"."NOME"'
+      Size = 50
+    end
+    object IBDataSetFuncionarioENDERECO: TIBStringField
+      FieldName = 'ENDERECO'
+      Origin = '"FUNCIONARIOS"."ENDERECO"'
+      Size = 50
+    end
+    object IBDataSetFuncionarioCIDADE: TIBStringField
+      FieldName = 'CIDADE'
+      Origin = '"FUNCIONARIOS"."CIDADE"'
+      Size = 30
+    end
+    object IBDataSetFuncionarioTELEFONE: TIBStringField
+      FieldName = 'TELEFONE'
+      Origin = '"FUNCIONARIOS"."TELEFONE"'
+      Size = 15
+    end
+    object IBDataSetFuncionarioSEXO: TIBStringField
+      FieldName = 'SEXO'
+      Origin = '"FUNCIONARIOS"."SEXO"'
+      FixedChar = True
+      Size = 1
+    end
+    object IBDataSetFuncionarioATIVO: TIBStringField
+      FieldName = 'ATIVO'
+      Origin = '"FUNCIONARIOS"."ATIVO"'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object DataSourceFuncionarios: TDataSource
+    DataSet = IBDataSetFuncionario
+    Left = 320
+    Top = 88
+  end
+  object DataSourceItens: TDataSource
+    DataSet = IBDataSetItens
+    Left = 320
+    Top = 152
+  end
+  object IBDataSetItens: TIBDataSet
+    Database = IBDatabase
+    Transaction = IBTransaction
+    ForcedRefresh = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    InsertSQL.Strings = (
+      'INSERT INTO ITENS_BAR'
+      '('
+      '  DESCRICAO,'
+      '  VALOR'
+      ')'
+      'VALUES'
+      '('
+      ''
+      '  :"DESCRICAO",'
+      '  :"VALOR"'
+      ');')
+    SelectSQL.Strings = (
+      'select * from ITENS_BAR')
+    ParamCheck = True
+    UniDirectional = False
+    Left = 192
+    Top = 152
+    object IBDataSetItensDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"ITENS_BAR"."DESCRICAO"'
+      Size = 50
+    end
+    object IBDataSetItensVALOR: TIBBCDField
+      FieldName = 'VALOR'
+      Origin = '"ITENS_BAR"."VALOR"'
+      Precision = 9
+      Size = 2
+    end
+  end
+  object IBDataSetPistas: TIBDataSet
+    Database = IBDatabase
+    Transaction = IBTransaction
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from PISTAS WHERE ID = :"ID";')
+    InsertSQL.Strings = (
+      'INSERT INTO PISTAS'
+      '('
+      '  DESCRICAO,'
+      '  DISPONIVEL,'
+      '  MANUTENCAO'
+      ')'
+      'VALUES'
+      '('
+      '  :"DESCRICAO",'
+      '  :"DISPONIVEL",'
+      '  :"MANUTENCAO"'
+      ');')
+    SelectSQL.Strings = (
+      'select * from PISTAS')
+    ModifySQL.Strings = (
+      'UPDATE PISTAS'
+      '   SET DESCRICAO = :"DESCRICAO",'
+      '       DISPONIVEL = :"DISPONIVEL",'
+      '       MANUTENCAO = :"MANUTENCAO"'
+      'WHERE ID = :"ID";')
+    ParamCheck = True
+    UniDirectional = False
+    Left = 192
+    Top = 208
+    object IBDataSetPistasID: TIntegerField
+      FieldName = 'ID'
+      Origin = '"PISTAS"."ID"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object IBDataSetPistasDESCRICAO: TIBStringField
+      FieldName = 'DESCRICAO'
+      Origin = '"PISTAS"."DESCRICAO"'
+      Size = 40
+    end
+    object IBDataSetPistasDISPONIVEL: TIBStringField
+      FieldName = 'DISPONIVEL'
+      Origin = '"PISTAS"."DISPONIVEL"'
+      FixedChar = True
+      Size = 1
+    end
+    object IBDataSetPistasMANUTENCAO: TIBStringField
+      FieldName = 'MANUTENCAO'
+      Origin = '"PISTAS"."MANUTENCAO"'
+      FixedChar = True
+      Size = 1
+    end
+  end
+  object DataSourcePistas: TDataSource
+    DataSet = IBDataSetPistas
+    Left = 320
+    Top = 208
   end
 end
