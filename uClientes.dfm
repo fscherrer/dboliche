@@ -2,7 +2,7 @@ object frmClientes: TfrmClientes
   Left = 0
   Top = 0
   Caption = 'Clientes'
-  ClientHeight = 361
+  ClientHeight = 369
   ClientWidth = 257
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -11,6 +11,7 @@ object frmClientes: TfrmClientes
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lblNome: TLabel
@@ -45,17 +46,9 @@ object frmClientes: TfrmClientes
     Caption = 'Telefone'
     FocusControl = DBEdit5
   end
-  object lblSexo: TLabel
-    Left = 8
-    Top = 208
-    Width = 24
-    Height = 13
-    Caption = 'Sexo'
-    FocusControl = DBEdit6
-  end
   object lblemail: TLabel
     Left = 8
-    Top = 248
+    Top = 256
     Width = 28
     Height = 13
     Caption = 'E-mail'
@@ -63,7 +56,7 @@ object frmClientes: TfrmClientes
   end
   object lblDataNascimento: TLabel
     Left = 8
-    Top = 288
+    Top = 296
     Width = 96
     Height = 13
     Caption = 'Data de Nascimento'
@@ -125,39 +118,47 @@ object frmClientes: TfrmClientes
     DataSource = DataModuleGlobal.DataSource
     TabOrder = 3
   end
-  object DBEdit6: TDBEdit
-    Left = 8
-    Top = 224
-    Width = 17
-    Height = 21
-    DataField = 'SEXO'
-    DataSource = DataModuleGlobal.DataSource
-    TabOrder = 4
-  end
   object DBEdit7: TDBEdit
     Left = 8
-    Top = 264
+    Top = 272
     Width = 241
     Height = 21
     DataField = 'EMAIL'
     DataSource = DataModuleGlobal.DataSource
-    TabOrder = 5
+    TabOrder = 4
   end
   object DBEdit8: TDBEdit
     Left = 8
-    Top = 304
+    Top = 312
     Width = 65
     Height = 21
     DataField = 'DNASC'
     DataSource = DataModuleGlobal.DataSource
-    TabOrder = 6
+    TabOrder = 5
   end
   object DBNavigator: TDBNavigator
     Left = 8
-    Top = 331
-    Width = 240
+    Top = 339
+    Width = 234
     Height = 25
     DataSource = DataModuleGlobal.DataSource
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+    TabOrder = 6
+  end
+  object DBRadioGroup1: TDBRadioGroup
+    Left = 8
+    Top = 203
+    Width = 161
+    Height = 47
+    Caption = 'Sexo'
+    DataField = 'SEXO'
+    DataSource = DataModuleGlobal.DataSource
+    Items.Strings = (
+      'Masculino'
+      'Feminino')
     TabOrder = 7
+    Values.Strings = (
+      'M'
+      'F')
   end
 end

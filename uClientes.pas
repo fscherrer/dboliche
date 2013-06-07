@@ -17,14 +17,14 @@ type
     DBEdit4: TDBEdit;
     lblTelefone: TLabel;
     DBEdit5: TDBEdit;
-    lblSexo: TLabel;
-    DBEdit6: TDBEdit;
     lblemail: TLabel;
     DBEdit7: TDBEdit;
     lblDataNascimento: TLabel;
     DBEdit8: TDBEdit;
     lblClientes: TLabel;
     DBNavigator: TDBNavigator;
+    DBRadioGroup1: TDBRadioGroup;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,5 +39,10 @@ Uses
   dmGlobal;
 
 {$R *.dfm}
+
+procedure TfrmClientes.FormShow(Sender: TObject);
+begin
+  DataModuleGlobal.IBDataSet.Active := true;
+end;
 
 end.

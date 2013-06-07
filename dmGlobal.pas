@@ -38,6 +38,7 @@ type
     IBDataSetPistasDISPONIVEL: TIBStringField;
     IBDataSetPistasMANUTENCAO: TIBStringField;
     IBDataSetPistasID: TIntegerField;
+    procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -52,5 +53,14 @@ implementation
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
 {$R *.dfm}
+
+procedure TDataModuleGlobal.DataModuleCreate(Sender: TObject);
+begin
+    IBDatabase.DatabaseName :=
+    ExtractFilePath(ParamStr(0)) + '..\..\database\database.fdb';
+    IBDatabase.Open;
+
+    IBTransaction.Active := true;
+end;
 
 end.

@@ -48,7 +48,9 @@ end;
 
 procedure TfrmPrincipal.btnPistasClick(Sender: TObject);
 begin
-frmPistas.ShowModal;
+  ExtractFilePath(ParamStr(0));
+  Application.MessageBox( PWideChar(ExtractFilePath(ParamStr(0))), 'sdkf');
+  frmPistas.ShowModal;
 end;
 
 end.

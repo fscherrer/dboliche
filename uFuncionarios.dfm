@@ -138,9 +138,10 @@ object frmFuncionarios: TfrmFuncionarios
   object DBNavigator1: TDBNavigator
     Left = 8
     Top = 304
-    Width = 240
+    Width = 234
     Height = 25
     DataSource = DataModuleGlobal.DataSourceFuncionarios
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
     TabOrder = 6
   end
 end

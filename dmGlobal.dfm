@@ -1,9 +1,9 @@
 object DataModuleGlobal: TDataModuleGlobal
   OldCreateOrder = False
+  OnCreate = DataModuleCreate
   Height = 294
   Width = 449
   object IBDatabase: TIBDatabase
-    Connected = True
     DatabaseName = 'D:\delphi\DBoliche\database\database.fdb'
     Params.Strings = (
       'user_name=SYSDBA'
@@ -14,7 +14,6 @@ object DataModuleGlobal: TDataModuleGlobal
     Top = 24
   end
   object IBTransaction: TIBTransaction
-    Active = True
     DefaultDatabase = IBDatabase
     Left = 112
     Top = 24
@@ -61,7 +60,6 @@ object DataModuleGlobal: TDataModuleGlobal
       'WHERE ID = :"ID";')
     ParamCheck = True
     UniDirectional = False
-    Active = True
     Left = 192
     Top = 24
     object IBDataSetID: TIntegerField

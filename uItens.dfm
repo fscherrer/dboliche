@@ -63,7 +63,7 @@ object frmItens: TfrmItens
     Left = 8
     Top = 107
     Width = 57
-    Height = 22
+    Height = 21
     DataField = 'VALOR'
     DataSource = DataModuleGlobal.DataSourceItens
     TabOrder = 1
@@ -71,9 +71,10 @@ object frmItens: TfrmItens
   object DBNavigator1: TDBNavigator
     Left = 8
     Top = 147
-    Width = 240
+    Width = 234
     Height = 25
     DataSource = DataModuleGlobal.DataSourceItens
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
     TabOrder = 2
   end
 end

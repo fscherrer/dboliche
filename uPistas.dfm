@@ -3,7 +3,7 @@ object frmPistas: TfrmPistas
   Top = 0
   Caption = 'Pistas'
   ClientHeight = 209
-  ClientWidth = 256
+  ClientWidth = 249
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -40,7 +40,7 @@ object frmPistas: TfrmPistas
   object lblPistas: TLabel
     Left = 0
     Top = 0
-    Width = 256
+    Width = 249
     Height = 42
     Align = alTop
     AutoSize = False
@@ -88,9 +88,10 @@ object frmPistas: TfrmPistas
   object DBNavigator1: TDBNavigator
     Left = 8
     Top = 171
-    Width = 240
+    Width = 234
     Height = 25
     DataSource = DataModuleGlobal.DataSourcePistas
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
     TabOrder = 3
   end
 end
