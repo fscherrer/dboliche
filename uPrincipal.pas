@@ -27,6 +27,7 @@ var
 
 implementation
 Uses
+  dmGlobal,
   uClientes, uFuncionarios, uItens, uPistas;
 
 {$R *.dfm}
@@ -48,9 +49,8 @@ end;
 
 procedure TfrmPrincipal.btnPistasClick(Sender: TObject);
 begin
-  ExtractFilePath(ParamStr(0));
-  Application.MessageBox( PWideChar(ExtractFilePath(ParamStr(0))), 'sdkf');
-  frmPistas.ShowModal;
+//Application.MessageBox(PWideChar(DataModuleGlobal.IBDatabase.DatabaseName), 'titu');
+frmPistas.ShowModal;
 end;
 
 end.

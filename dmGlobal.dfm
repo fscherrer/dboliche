@@ -1,10 +1,10 @@
 object DataModuleGlobal: TDataModuleGlobal
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 294
-  Width = 449
+  Height = 364
+  Width = 445
   object IBDatabase: TIBDatabase
-    DatabaseName = 'D:\delphi\DBoliche\database\database.fdb'
+    DatabaseName = '\\127.0.0.1\E:\delphi\DBoliche\database\database.fdb'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey')

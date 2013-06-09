@@ -56,8 +56,8 @@ implementation
 
 procedure TDataModuleGlobal.DataModuleCreate(Sender: TObject);
 begin
-    IBDatabase.DatabaseName :=
-    ExtractFilePath(ParamStr(0)) + '..\..\database\database.fdb';
+    IBDatabase.DatabaseName := '\\127.0.0.1\' +
+      ExtractFilePath(ParamStr(0)) + 'database\database.fdb';
     IBDatabase.Open;
 
     IBTransaction.Active := true;
