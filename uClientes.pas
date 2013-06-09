@@ -23,7 +23,7 @@ type
     DBEdit8: TDBEdit;
     lblClientes: TLabel;
     DBNavigator: TDBNavigator;
-    DBRadioGroup1: TDBRadioGroup;
+    DBRadioGroupSexo: TDBRadioGroup;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }

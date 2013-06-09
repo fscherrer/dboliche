@@ -18,11 +18,9 @@ type
     DBEdit3: TDBEdit;
     lblTelefone: TLabel;
     DBEdit4: TDBEdit;
-    lblSexo: TLabel;
-    DBEdit5: TDBEdit;
-    lblAtivo: TLabel;
-    DBEdit6: TDBEdit;
     DBNavigator1: TDBNavigator;
+    DBRadioGroupSexo: TDBRadioGroup;
+    DBRadioGroupAtivo: TDBRadioGroup;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }

@@ -145,7 +145,7 @@ object frmClientes: TfrmClientes
     VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
     TabOrder = 6
   end
-  object DBRadioGroup1: TDBRadioGroup
+  object DBRadioGroupSexo: TDBRadioGroup
     Left = 8
     Top = 203
     Width = 161

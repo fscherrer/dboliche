@@ -2,7 +2,7 @@ object frmPistas: TfrmPistas
   Left = 0
   Top = 0
   Caption = 'Pistas'
-  ClientHeight = 209
+  ClientHeight = 237
   ClientWidth = 249
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,22 +21,6 @@ object frmPistas: TfrmPistas
     Height = 13
     Caption = 'Descri'#231#227'o'
     FocusControl = DBEdit1
-  end
-  object lblDisponivel: TLabel
-    Left = 8
-    Top = 88
-    Width = 48
-    Height = 13
-    Caption = 'Dispon'#237'vel'
-    FocusControl = DBEdit2
-  end
-  object lblManutencao: TLabel
-    Left = 8
-    Top = 128
-    Width = 59
-    Height = 13
-    Caption = 'Manuten'#231#227'o'
-    FocusControl = DBEdit3
   end
   object lblPistas: TLabel
     Left = 0
@@ -68,31 +52,45 @@ object frmPistas: TfrmPistas
     DataSource = DataModuleGlobal.DataSourcePistas
     TabOrder = 0
   end
-  object DBEdit2: TDBEdit
-    Left = 8
-    Top = 104
-    Width = 17
-    Height = 21
-    DataField = 'DISPONIVEL'
-    DataSource = DataModuleGlobal.DataSourcePistas
-    TabOrder = 1
-  end
-  object DBEdit3: TDBEdit
-    Left = 8
-    Top = 144
-    Width = 17
-    Height = 21
-    DataField = 'MANUTENCAO'
-    DataSource = DataModuleGlobal.DataSourcePistas
-    TabOrder = 2
-  end
   object DBNavigator1: TDBNavigator
     Left = 8
-    Top = 171
+    Top = 205
     Width = 234
     Height = 25
     DataSource = DataModuleGlobal.DataSourcePistas
     VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+    TabOrder = 1
+  end
+  object DBRadioGroupDisponivel: TDBRadioGroup
+    Left = 8
+    Top = 88
+    Width = 161
+    Height = 47
+    Caption = 'Dispon'#237'vel'
+    DataField = 'DISPONIVEL'
+    DataSource = DataModuleGlobal.DataSourcePistas
+    Items.Strings = (
+      'Sim'
+      'N'#227'o')
+    TabOrder = 2
+    Values.Strings = (
+      'S'
+      'N')
+  end
+  object DBRadioGroupManutencao: TDBRadioGroup
+    Left = 8
+    Top = 141
+    Width = 161
+    Height = 47
+    Caption = 'Manuten'#231#227'o'
+    DataField = 'MANUTENCAO'
+    DataSource = DataModuleGlobal.DataSourcePistas
+    Items.Strings = (
+      'Sim'
+      'N'#227'o')
     TabOrder = 3
+    Values.Strings = (
+      'S'
+      'N')
   end
 end

@@ -19,19 +19,19 @@ uses
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmBoliche, frmBoliche);
-  Application.CreateForm(TfrmPrincipal, frmPrincipal);
-  Application.CreateForm(TDataModuleGlobal, DataModuleGlobal);
-  Application.CreateForm(TfrmClientes, frmClientes);
-  Application.CreateForm(TfrmFuncionarios, frmFuncionarios);
-  Application.CreateForm(TfrmItens, frmItens);
   Application.CreateForm(TfrmPistas, frmPistas);
+  Application.CreateForm(TfrmFuncionarios, frmFuncionarios);
+  Application.CreateForm(TfrmClientes, frmClientes);
+  Application.CreateForm(TfrmPrincipal, frmPrincipal);
+  Application.CreateForm(TfrmBoliche, frmBoliche);
+  Application.CreateForm(TfrmListaItens, frmListaItens);
+  Application.CreateForm(TfrmFecharComanda, frmFecharComanda);
   Application.CreateForm(TfrmComanda, frmComanda);
+  Application.CreateForm(TDataModuleGlobal, DataModuleGlobal);
+  Application.CreateForm(TfrmItens, frmItens);
   Application.CreateForm(TfrmComandas, frmComandas);
   Application.CreateForm(TfrmBoliche, frmBoliche);
   Application.CreateForm(TfrmComanda, frmComanda);
   Application.CreateForm(TfrmComandas, frmComandas);
-  Application.CreateForm(TfrmFecharComanda, frmFecharComanda);
-  Application.CreateForm(TfrmListaItens, frmListaItens);
   Application.Run;
 end.

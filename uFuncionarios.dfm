@@ -2,7 +2,7 @@ object frmFuncionarios: TfrmFuncionarios
   Left = 0
   Top = 0
   Caption = 'Funcion'#225'rios'
-  ClientHeight = 342
+  ClientHeight = 357
   ClientWidth = 259
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -66,22 +66,6 @@ object frmFuncionarios: TfrmFuncionarios
     Caption = 'Telefone'
     FocusControl = DBEdit4
   end
-  object lblSexo: TLabel
-    Left = 8
-    Top = 208
-    Width = 24
-    Height = 13
-    Caption = 'Sexo'
-    FocusControl = DBEdit5
-  end
-  object lblAtivo: TLabel
-    Left = 8
-    Top = 248
-    Width = 25
-    Height = 13
-    Caption = 'Ativo'
-    FocusControl = DBEdit6
-  end
   object DBEdit1: TDBEdit
     Left = 8
     Top = 61
@@ -118,31 +102,45 @@ object frmFuncionarios: TfrmFuncionarios
     DataSource = DataModuleGlobal.DataSourceFuncionarios
     TabOrder = 3
   end
-  object DBEdit5: TDBEdit
-    Left = 8
-    Top = 224
-    Width = 17
-    Height = 21
-    DataField = 'SEXO'
-    DataSource = DataModuleGlobal.DataSourceFuncionarios
-    TabOrder = 4
-  end
-  object DBEdit6: TDBEdit
-    Left = 8
-    Top = 264
-    Width = 17
-    Height = 21
-    DataField = 'ATIVO'
-    DataSource = DataModuleGlobal.DataSourceFuncionarios
-    TabOrder = 5
-  end
   object DBNavigator1: TDBNavigator
     Left = 8
-    Top = 304
+    Top = 321
     Width = 234
     Height = 25
     DataSource = DataModuleGlobal.DataSourceFuncionarios
     VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast, nbInsert, nbDelete, nbEdit, nbPost, nbCancel]
+    TabOrder = 4
+  end
+  object DBRadioGroupSexo: TDBRadioGroup
+    Left = 8
+    Top = 208
+    Width = 161
+    Height = 47
+    Caption = 'Sexo'
+    DataField = 'SEXO'
+    DataSource = DataModuleGlobal.DataSourceFuncionarios
+    Items.Strings = (
+      'Masculino'
+      'Feminino')
+    TabOrder = 5
+    Values.Strings = (
+      'M'
+      'F')
+  end
+  object DBRadioGroupAtivo: TDBRadioGroup
+    Left = 8
+    Top = 261
+    Width = 161
+    Height = 47
+    Caption = 'Ativo'
+    DataField = 'ATIVO'
+    DataSource = DataModuleGlobal.DataSourceFuncionarios
+    Items.Strings = (
+      'Sim'
+      'N'#227'o')
     TabOrder = 6
+    Values.Strings = (
+      'S'
+      'N')
   end
 end

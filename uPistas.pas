@@ -11,12 +11,10 @@ type
   TfrmPistas = class(TForm)
     lblDescricao: TLabel;
     DBEdit1: TDBEdit;
-    lblDisponivel: TLabel;
-    DBEdit2: TDBEdit;
-    lblManutencao: TLabel;
-    DBEdit3: TDBEdit;
     DBNavigator1: TDBNavigator;
     lblPistas: TLabel;
+    DBRadioGroupDisponivel: TDBRadioGroup;
+    DBRadioGroupManutencao: TDBRadioGroup;
     procedure FormShow(Sender: TObject);
   private
     { Private declarations }
