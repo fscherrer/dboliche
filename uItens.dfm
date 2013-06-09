@@ -17,17 +17,17 @@ object frmItens: TfrmItens
   object lblDescricao: TLabel
     Left = 8
     Top = 48
-    Width = 59
+    Width = 46
     Height = 13
-    Caption = 'DESCRICAO'
+    Caption = 'Descri'#231#227'o'
     FocusControl = DBEdit1
   end
   object lblValor: TLabel
     Left = 8
     Top = 88
-    Width = 33
+    Width = 24
     Height = 13
-    Caption = 'VALOR'
+    Caption = 'Valor'
     FocusControl = DBEdit2
   end
   object lblItensBar: TLabel

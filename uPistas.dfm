@@ -17,25 +17,25 @@ object frmPistas: TfrmPistas
   object lblDescricao: TLabel
     Left = 8
     Top = 48
-    Width = 59
+    Width = 46
     Height = 13
-    Caption = 'DESCRICAO'
+    Caption = 'Descri'#231#227'o'
     FocusControl = DBEdit1
   end
   object lblDisponivel: TLabel
     Left = 8
     Top = 88
-    Width = 59
+    Width = 48
     Height = 13
-    Caption = 'DISPONIVEL'
+    Caption = 'Dispon'#237'vel'
     FocusControl = DBEdit2
   end
   object lblManutencao: TLabel
     Left = 8
     Top = 128
-    Width = 70
+    Width = 59
     Height = 13
-    Caption = 'MANUTENCAO'
+    Caption = 'Manuten'#231#227'o'
     FocusControl = DBEdit3
   end
   object lblPistas: TLabel

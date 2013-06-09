@@ -37,54 +37,54 @@ object frmFuncionarios: TfrmFuncionarios
   object lblNome: TLabel
     Left = 8
     Top = 48
-    Width = 29
+    Width = 27
     Height = 13
-    Caption = 'NOME'
+    Caption = 'Nome'
     FocusControl = DBEdit1
   end
   object lblEndereco: TLabel
     Left = 8
     Top = 88
-    Width = 54
+    Width = 45
     Height = 13
-    Caption = 'ENDERECO'
+    Caption = 'Endere'#231'o'
     FocusControl = DBEdit2
   end
   object lblCidade: TLabel
     Left = 8
     Top = 128
-    Width = 38
+    Width = 33
     Height = 13
-    Caption = 'CIDADE'
+    Caption = 'Cidade'
     FocusControl = DBEdit3
   end
   object lblTelefone: TLabel
     Left = 8
     Top = 168
-    Width = 50
+    Width = 42
     Height = 13
-    Caption = 'TELEFONE'
+    Caption = 'Telefone'
     FocusControl = DBEdit4
   end
   object lblSexo: TLabel
     Left = 8
     Top = 208
-    Width = 26
+    Width = 24
     Height = 13
-    Caption = 'SEXO'
+    Caption = 'Sexo'
     FocusControl = DBEdit5
   end
   object lblAtivo: TLabel
     Left = 8
     Top = 248
-    Width = 31
+    Width = 25
     Height = 13
-    Caption = 'ATIVO'
+    Caption = 'Ativo'
     FocusControl = DBEdit6
   end
   object DBEdit1: TDBEdit
     Left = 8
-    Top = 64
+    Top = 61
     Width = 241
     Height = 21
     DataField = 'NOME'

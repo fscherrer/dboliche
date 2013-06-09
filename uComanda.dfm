@@ -42,7 +42,7 @@ object frmComanda: TfrmComanda
   end
   object lblPista: TLabel
     Left = 8
-    Top = 83
+    Top = 78
     Width = 30
     Height = 13
     Caption = 'Pista :'
