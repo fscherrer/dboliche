@@ -40,6 +40,14 @@ type
     IBDataSetPistasID: TIntegerField;
     IBDataSetFuncionarioID: TIntegerField;
     IBDataSetItensID: TIntegerField;
+    IBDataSetComanda: TIBDataSet;
+    DataSourceComandas: TDataSource;
+    IBDataSetComandaID: TIntegerField;
+    IBDataSetComandaABERTURA: TDateTimeField;
+    IBDataSetComandaFECHAMENTO: TDateTimeField;
+    IBDataSetComandaID_FUNCIONARIO: TIntegerField;
+    IBDataSetComandaID_PISTA: TIntegerField;
+    IBDataSetComandaVALOR: TIBBCDField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

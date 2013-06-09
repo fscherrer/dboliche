@@ -4,6 +4,7 @@ object DataModuleGlobal: TDataModuleGlobal
   Height = 364
   Width = 445
   object IBDatabase: TIBDatabase
+    Connected = True
     DatabaseName = '\\127.0.0.1\E:\delphi\DBoliche\database\database.fdb'
     Params.Strings = (
       'user_name=SYSDBA'
@@ -14,6 +15,7 @@ object DataModuleGlobal: TDataModuleGlobal
     Top = 24
   end
   object IBTransaction: TIBTransaction
+    Active = True
     DefaultDatabase = IBDatabase
     Left = 112
     Top = 24
@@ -278,6 +280,7 @@ object DataModuleGlobal: TDataModuleGlobal
       'WHERE ID = :"ID";')
     ParamCheck = True
     UniDirectional = False
+    Active = True
     Left = 192
     Top = 208
     object IBDataSetPistasID: TIntegerField
@@ -307,5 +310,64 @@ object DataModuleGlobal: TDataModuleGlobal
     DataSet = IBDataSetPistas
     Left = 320
     Top = 208
+  end
+  object IBDataSetComanda: TIBDataSet
+    Database = IBDatabase
+    Transaction = IBTransaction
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      'DELETE FROM clientes WHERE ID = :"ID";')
+    InsertSQL.Strings = (
+      'INSERT INTO COMANDA'
+      '('
+      '  ABERTURA,'
+      '  ID_FUNCIONARIO,'
+      '  ID_PISTA'
+      ')'
+      'VALUES'
+      '('
+      '  :"ABERTURA",'
+      '  :"ID_FUNCIONARIO",'
+      '  :"ID_PISTA"'
+      ');')
+    SelectSQL.Strings = (
+      'select * from COMANDA')
+    ParamCheck = True
+    UniDirectional = False
+    Left = 192
+    Top = 264
+    object IBDataSetComandaID: TIntegerField
+      FieldName = 'ID'
+      Origin = '"COMANDA"."ID"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
+    object IBDataSetComandaABERTURA: TDateTimeField
+      FieldName = 'ABERTURA'
+      Origin = '"COMANDA"."ABERTURA"'
+    end
+    object IBDataSetComandaFECHAMENTO: TDateTimeField
+      FieldName = 'FECHAMENTO'
+      Origin = '"COMANDA"."FECHAMENTO"'
+    end
+    object IBDataSetComandaID_FUNCIONARIO: TIntegerField
+      FieldName = 'ID_FUNCIONARIO'
+      Origin = '"COMANDA"."ID_FUNCIONARIO"'
+    end
+    object IBDataSetComandaID_PISTA: TIntegerField
+      FieldName = 'ID_PISTA'
+      Origin = '"COMANDA"."ID_PISTA"'
+    end
+    object IBDataSetComandaVALOR: TIBBCDField
+      FieldName = 'VALOR'
+      Origin = '"COMANDA"."VALOR"'
+      Precision = 9
+      Size = 2
+    end
+  end
+  object DataSourceComandas: TDataSource
+    DataSet = IBDataSetComanda
+    Left = 320
+    Top = 264
   end
 end

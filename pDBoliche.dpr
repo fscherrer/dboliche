@@ -8,26 +8,30 @@ uses
   uFuncionarios in 'uFuncionarios.pas' {frmFuncionarios},
   uItens in 'uItens.pas' {frmItens},
   uPistas in 'uPistas.pas' {frmPistas},
+  uDBoliche in 'uDBoliche.pas' {frmBoliche},
   uComanda in 'uComanda.pas' {frmComanda},
   uComandas in 'uComandas.pas' {frmComandas},
-  uListagemItens in 'uListagemItens.pas' {frmListaItens},
   uFecharComanda in 'uFecharComanda.pas' {frmFecharComanda},
-  uDBoliche in 'uDBoliche.pas' {frmBoliche};
+  uListagemItens in 'uListagemItens.pas' {frmListaItens};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmBoliche, frmBoliche);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TDataModuleGlobal, DataModuleGlobal);
   Application.CreateForm(TfrmClientes, frmClientes);
   Application.CreateForm(TfrmFuncionarios, frmFuncionarios);
   Application.CreateForm(TfrmItens, frmItens);
   Application.CreateForm(TfrmPistas, frmPistas);
-  Application.CreateForm(TfrmBoliche, frmBoliche);
   Application.CreateForm(TfrmComanda, frmComanda);
   Application.CreateForm(TfrmComandas, frmComandas);
   Application.CreateForm(TfrmBoliche, frmBoliche);
+  Application.CreateForm(TfrmComanda, frmComanda);
+  Application.CreateForm(TfrmComandas, frmComandas);
+  Application.CreateForm(TfrmFecharComanda, frmFecharComanda);
+  Application.CreateForm(TfrmListaItens, frmListaItens);
   Application.Run;
 end.

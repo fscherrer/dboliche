@@ -11,6 +11,8 @@ object frmComanda: TfrmComanda
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lblComanda: TLabel
@@ -49,32 +51,26 @@ object frmComanda: TfrmComanda
   end
   object lblClientes: TLabel
     Left = 8
-    Top = 115
+    Top = 106
     Width = 45
     Height = 13
     Caption = 'Clientes :'
   end
-  object DBEdit1: TDBEdit
+  object dbeAbertura: TDBEdit
     Left = 72
     Top = 48
     Width = 121
     Height = 21
+    Enabled = False
     TabOrder = 0
   end
   object DBListBox1: TDBListBox
     Left = 72
-    Top = 115
+    Top = 106
     Width = 121
     Height = 97
     ItemHeight = 13
     TabOrder = 1
-  end
-  object DBComboBox1: TDBComboBox
-    Left = 72
-    Top = 75
-    Width = 121
-    Height = 21
-    TabOrder = 2
   end
   object btnOK: TButton
     Left = 142
@@ -82,7 +78,7 @@ object frmComanda: TfrmComanda
     Width = 51
     Height = 25
     Caption = 'OK'
-    TabOrder = 3
+    TabOrder = 2
   end
   object btnCancelar: TButton
     Left = 72
@@ -90,6 +86,19 @@ object frmComanda: TfrmComanda
     Width = 64
     Height = 25
     Caption = 'Cancelar'
+    TabOrder = 3
+    OnClick = btnCancelarClick
+  end
+  object dbLookupComboBoxPista: TDBLookupComboBox
+    Left = 72
+    Top = 79
+    Width = 121
+    Height = 21
+    DataField = 'ID_PISTA'
+    DataSource = DataModuleGlobal.DataSourceComandas
+    KeyField = 'ID'
+    ListField = 'DESCRICAO'
+    ListSource = DataModuleGlobal.DataSourcePistas
     TabOrder = 4
   end
 end

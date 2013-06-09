@@ -20,6 +20,7 @@ object frmBoliche: TfrmBoliche
     Height = 82
     Caption = 'Abrir Comanda'
     TabOrder = 0
+    OnClick = btnAbrirComandaClick
   end
   object btnComandas: TButton
     Left = 80
@@ -28,5 +29,6 @@ object frmBoliche: TfrmBoliche
     Height = 82
     Caption = 'Comandas'
     TabOrder = 1
+    OnClick = btnComandasClick
   end
 end
