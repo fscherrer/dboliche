@@ -54,7 +54,6 @@ begin
 //  ShowMessage(dbLookupComboBoxPista.KeyValue);
   with DataModuleGlobal.IBStoredProcAbrirComanda do
   begin
-    Close;
     ParamByName('PISTA').Value := dbLookupComboBoxPista.KeyValue;
     // TODO: o funcionário virá de onde?
     ParamByName('FUNCIONARIO').Value := 5;
@@ -69,7 +68,10 @@ begin
     //  1 - abertura da comanda OK
     //  2 - Pista indisponivel
     if(ParamByName('STATUS').Value = 1) then
-      Application.MessageBox('Comanda aberta com sucesso', 'Sucesso')
+    begin
+      Application.MessageBox('Comanda aberta com sucesso', 'Sucesso');
+      frmComanda.Close;
+    end
     else
       Application.MessageBox('Pista já em uso', 'Falha');
 

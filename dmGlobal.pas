@@ -43,13 +43,13 @@ type
     IBDataSetItensID: TIntegerField;
     IBDataSetComanda: TIBDataSet;
     DataSourceComandas: TDataSource;
+    IBStoredProcAbrirComanda: TIBStoredProc;
     IBDataSetComandaID: TIntegerField;
     IBDataSetComandaABERTURA: TDateTimeField;
-    IBDataSetComandaFECHAMENTO: TDateTimeField;
-    IBDataSetComandaID_FUNCIONARIO: TIntegerField;
-    IBDataSetComandaID_PISTA: TIntegerField;
+    IBDataSetComandaPISTA: TIBStringField;
     IBDataSetComandaVALOR: TIBBCDField;
-    IBStoredProcAbrirComanda: TIBStoredProc;
+    IBDataSetComandaFECHAMENTO: TDateTimeField;
+    IBStoredProcFecharComanda: TIBStoredProc;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }

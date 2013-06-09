@@ -2,8 +2,8 @@ object frmFecharComanda: TfrmFecharComanda
   Left = 0
   Top = 0
   Caption = 'Fechar Comanda'
-  ClientHeight = 202
-  ClientWidth = 208
+  ClientHeight = 161
+  ClientWidth = 199
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,7 +15,7 @@ object frmFecharComanda: TfrmFecharComanda
   TextHeight = 13
   object lblPista: TLabel
     Left = 8
-    Top = 83
+    Top = 78
     Width = 30
     Height = 13
     Caption = 'Pista :'
@@ -29,7 +29,7 @@ object frmFecharComanda: TfrmFecharComanda
   end
   object lblTotal: TLabel
     Left = 8
-    Top = 115
+    Top = 105
     Width = 31
     Height = 13
     Caption = 'Total :'
@@ -37,7 +37,7 @@ object frmFecharComanda: TfrmFecharComanda
   object lblFecharComanda: TLabel
     Left = 0
     Top = 0
-    Width = 208
+    Width = 199
     Height = 42
     Align = alTop
     AutoSize = False
@@ -54,41 +54,46 @@ object frmFecharComanda: TfrmFecharComanda
     Layout = tlCenter
     ExplicitWidth = 453
   end
-  object DBEdit1: TDBEdit
-    Left = 72
-    Top = 48
-    Width = 121
-    Height = 21
-    TabOrder = 0
-  end
-  object DBEdit2: TDBEdit
-    Left = 72
-    Top = 80
-    Width = 121
-    Height = 21
-    TabOrder = 1
-  end
-  object DBEdit3: TDBEdit
-    Left = 72
-    Top = 112
-    Width = 121
-    Height = 21
-    TabOrder = 2
-  end
   object btnCancelar: TButton
     Left = 72
-    Top = 153
+    Top = 129
     Width = 64
     Height = 25
     Caption = 'Cancelar'
-    TabOrder = 3
+    TabOrder = 0
+    OnClick = btnCancelarClick
   end
   object btnOK: TButton
-    Left = 142
-    Top = 153
+    Left = 140
+    Top = 129
     Width = 51
     Height = 25
     Caption = 'OK'
+    TabOrder = 1
+    OnClick = btnOKClick
+  end
+  object editAbertura: TEdit
+    Left = 64
+    Top = 48
+    Width = 127
+    Height = 21
+    Enabled = False
+    TabOrder = 2
+  end
+  object editPista: TEdit
+    Left = 64
+    Top = 75
+    Width = 127
+    Height = 21
+    Enabled = False
+    TabOrder = 3
+  end
+  object editTotal: TEdit
+    Left = 64
+    Top = 102
+    Width = 127
+    Height = 21
+    Enabled = False
     TabOrder = 4
   end
 end

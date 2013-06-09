@@ -173,21 +173,6 @@ begin
 end;
 /
 
--- procedure fecharComanda
---   libera a pista
---   marca data e hora de saída
---   calcula valor da pista
-drop procedure fechaPista;
-create procedure fechaPista(idComanda int)
-as
-begin
-  update pistas set disponivel = 'S' where id = (select id_pista from comanda where id = idComanda);
-  update comanda set fechamento = cast('now' as timestamp) where id = :idComanda;
-  update comanda set valor = (select sum(valor_item * qtdade) from itens_comanda where id_comanda = idComanda)
-    where id = :idComanda;
-end;
-/
-
 
 insert into pistas(descricao, disponivel, manutencao)
   values('Pista 1', 'S', 'N');
@@ -206,6 +191,17 @@ select * from cliente_comanda;
 delete from cliente_comanda;
 delete from comanda;
 update pistas set disponivel = 'S';
+
+select 
+  comanda.id, 
+  abertura,
+  pistas.descricao as pista,
+  valor
+from 
+  comanda 
+    join pistas
+      on pistas.id = id_pista
+
 
 drop procedure ABREPISTA
 CREATE PROCEDURE ABREPISTA (PISTA INTEGER,FUNCIONARIO INTEGER,CLIENTE1 INTEGER,CLIENTE2 INTEGER,CLIENTE3 INTEGER,CLIENTE4 INTEGER,CLIENTE5 INTEGER,CLIENTE6 INTEGER)
@@ -263,4 +259,28 @@ begin
   status = 1;
   suspend;
 end
+/
+
+-- procedure fecharComanda
+--   libera a pista
+--   marca data e hora de saída
+--   calcula valor da pista
+drop procedure fechaPista;
+CREATE PROCEDURE fechaPista (idComanda int)
+AS
+BEGIN UPDATE pistas
+   SET disponivel = 'S'
+WHERE id = (SELECT id_pista FROM comanda WHERE id = :idComanda);
+
+UPDATE comanda
+   SET fechamento = CAST('now' AS TIMESTAMP)
+WHERE id = :idComanda;
+
+UPDATE comanda
+   SET valor = (SELECT SUM(valor_item*qtdade)
+                FROM itens_comanda
+                WHERE id_comanda = :idComanda)
+WHERE id = :idComanda;
+
+END;
 /

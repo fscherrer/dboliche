@@ -10,13 +10,16 @@ type
   TfrmFecharComanda = class(TForm)
     lblPista: TLabel;
     lblAbertura: TLabel;
-    DBEdit1: TDBEdit;
-    DBEdit2: TDBEdit;
     lblTotal: TLabel;
-    DBEdit3: TDBEdit;
     lblFecharComanda: TLabel;
     btnCancelar: TButton;
     btnOK: TButton;
+    editAbertura: TEdit;
+    editPista: TEdit;
+    editTotal: TEdit;
+    procedure btnCancelarClick(Sender: TObject);
+    procedure fechar(id: integer; abertura: string; pista: string; total: real);
+    procedure btnOKClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,9 +28,38 @@ type
 
 var
   frmFecharComanda: TfrmFecharComanda;
+  idComandaFechar: integer;
 
 implementation
+uses
+  dmGlobal;
 
 {$R *.dfm}
+
+procedure TfrmFecharComanda.btnCancelarClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmFecharComanda.btnOKClick(Sender: TObject);
+begin
+ with DataModuleGlobal.IBStoredProcFecharComanda do
+  begin
+    ParamByName('idComanda').Value := idComandaFechar;
+    ExecProc;
+
+    Application.MessageBox('Comanda fechada com sucesso', 'Sucesso');
+    frmFecharComanda.Close;
+  end;
+end;
+
+procedure TfrmFecharComanda.fechar(id: integer; abertura: string; pista: string; total: real);
+begin
+  idComandaFechar := id;
+  editAbertura.Text := abertura;
+  editPista.Text := pista;
+  editTotal.Text := FormatFloat('###,##0.00', total);
+  ShowModal;
+end;
 
 end.

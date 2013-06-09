@@ -330,7 +330,16 @@ object DataModuleGlobal: TDataModuleGlobal
       '  :"ID_PISTA"'
       ');')
     SelectSQL.Strings = (
-      'select * from COMANDA')
+      'select '
+      '  comanda.id, '
+      '  abertura,'
+      '  pistas.descricao as pista,'
+      '  valor,'
+      '  fechamento'
+      'from '
+      '  comanda '
+      '    join pistas'
+      '      on pistas.id = id_pista')
     ParamCheck = True
     UniDirectional = False
     Left = 192
@@ -339,28 +348,26 @@ object DataModuleGlobal: TDataModuleGlobal
       FieldName = 'ID'
       Origin = '"COMANDA"."ID"'
       ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
     end
     object IBDataSetComandaABERTURA: TDateTimeField
       FieldName = 'ABERTURA'
       Origin = '"COMANDA"."ABERTURA"'
     end
-    object IBDataSetComandaFECHAMENTO: TDateTimeField
-      FieldName = 'FECHAMENTO'
-      Origin = '"COMANDA"."FECHAMENTO"'
-    end
-    object IBDataSetComandaID_FUNCIONARIO: TIntegerField
-      FieldName = 'ID_FUNCIONARIO'
-      Origin = '"COMANDA"."ID_FUNCIONARIO"'
-    end
-    object IBDataSetComandaID_PISTA: TIntegerField
-      FieldName = 'ID_PISTA'
-      Origin = '"COMANDA"."ID_PISTA"'
+    object IBDataSetComandaPISTA: TIBStringField
+      FieldName = 'PISTA'
+      Origin = '"PISTAS"."DESCRICAO"'
+      Size = 40
     end
     object IBDataSetComandaVALOR: TIBBCDField
       FieldName = 'VALOR'
       Origin = '"COMANDA"."VALOR"'
       Precision = 9
       Size = 2
+    end
+    object IBDataSetComandaFECHAMENTO: TDateTimeField
+      FieldName = 'FECHAMENTO'
+      Origin = '"COMANDA"."FECHAMENTO"'
     end
   end
   object DataSourceComandas: TDataSource
@@ -418,6 +425,19 @@ object DataModuleGlobal: TDataModuleGlobal
       item
         DataType = ftInteger
         Name = 'CLIENTE6'
+        ParamType = ptInput
+      end>
+  end
+  object IBStoredProcFecharComanda: TIBStoredProc
+    Database = IBDatabase
+    Transaction = IBTransaction
+    StoredProcName = 'FECHAPISTA'
+    Left = 64
+    Top = 392
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'IDCOMANDA'
         ParamType = ptInput
       end>
   end
