@@ -117,6 +117,8 @@ object DataModuleGlobal: TDataModuleGlobal
     Transaction = IBTransaction
     BufferChunks = 1000
     CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from funcionarios WHERE ID = :"ID";')
     InsertSQL.Strings = (
       'INSERT INTO FUNCIONARIOS'
       '('
@@ -205,6 +207,8 @@ object DataModuleGlobal: TDataModuleGlobal
     ForcedRefresh = True
     BufferChunks = 1000
     CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from itens_bar WHERE ID = :"ID";')
     InsertSQL.Strings = (
       'INSERT INTO ITENS_BAR'
       '('
@@ -218,6 +222,11 @@ object DataModuleGlobal: TDataModuleGlobal
       ');')
     SelectSQL.Strings = (
       'select * from ITENS_BAR')
+    ModifySQL.Strings = (
+      'UPDATE ITENS_BAR'
+      '   SET DESCRICAO = :"DESCRICAO",'
+      '            VALOR = :"VALOR"'
+      'WHERE ID = :"ID";')
     ParamCheck = True
     UniDirectional = False
     Left = 192
