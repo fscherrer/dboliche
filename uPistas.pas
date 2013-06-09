@@ -17,6 +17,7 @@ type
     DBEdit3: TDBEdit;
     DBNavigator1: TDBNavigator;
     lblPistas: TLabel;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -31,5 +32,10 @@ uses
 dmGlobal;
 
 {$R *.dfm}
+
+procedure TfrmPistas.FormShow(Sender: TObject);
+begin
+  DataModuleGlobal.IBDataSetPistas.Active := true;
+end;
 
 end.

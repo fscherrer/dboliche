@@ -23,6 +23,7 @@ type
     lblAtivo: TLabel;
     DBEdit6: TDBEdit;
     DBNavigator1: TDBNavigator;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -37,5 +38,10 @@ USES
   dmGlobal;
 
 {$R *.dfm}
+
+procedure TfrmFuncionarios.FormShow(Sender: TObject);
+begin
+  DataModuleGlobal.IBDataSetFuncionario.Active := true;
+end;
 
 end.

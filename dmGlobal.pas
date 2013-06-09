@@ -38,6 +38,8 @@ type
     IBDataSetPistasDISPONIVEL: TIBStringField;
     IBDataSetPistasMANUTENCAO: TIBStringField;
     IBDataSetPistasID: TIntegerField;
+    IBDataSetFuncionarioID: TIntegerField;
+    IBDataSetItensID: TIntegerField;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -56,8 +58,14 @@ implementation
 
 procedure TDataModuleGlobal.DataModuleCreate(Sender: TObject);
 begin
+    // garante que estará fechado
+    IBDatabase.Close;
+
+    // configura o caminho da base com base no caminho da aplicação
     IBDatabase.DatabaseName := '\\127.0.0.1\' +
       ExtractFilePath(ParamStr(0)) + 'database\database.fdb';
+
+    // abre
     IBDatabase.Open;
 
     IBTransaction.Active := true;

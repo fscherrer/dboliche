@@ -65,6 +65,24 @@ begin
 end;
 /
 
+create trigger funcionarios_id for funcionarios
+active before insert position 0
+as
+begin
+  if(new.id is null) then
+    new.id = (select coalesce(max(id), 0) from funcionarios) + 1;
+end;
+/
+
+create trigger itens_bar_id for itens_bar
+active before insert position 0
+as
+begin
+  if(new.id is null) then
+    new.id = (select coalesce(max(id), 0) from itens_bar) + 1;
+end;
+/
+
 
 
 -- Foreign Keys

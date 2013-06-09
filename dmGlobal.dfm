@@ -138,10 +138,24 @@ object DataModuleGlobal: TDataModuleGlobal
       ');')
     SelectSQL.Strings = (
       'select * from FUNCIONARIOS')
+    ModifySQL.Strings = (
+      'UPDATE FUNCIONARIOS'
+      '   SET NOME = :"NOME",'
+      '       ENDERECO = :"ENDERECO",'
+      '       CIDADE = :"CIDADE",'
+      '       TELEFONE = :"TELEFONE",'
+      '       SEXO = :"SEXO",'
+      '       ATIVO = :"ATIVO"'
+      'WHERE ID = :"ID";')
     ParamCheck = True
     UniDirectional = False
     Left = 192
     Top = 88
+    object IBDataSetFuncionarioID: TIntegerField
+      FieldName = 'ID'
+      Origin = '"FUNCIONARIOS"."ID"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
     object IBDataSetFuncionarioNOME: TIBStringField
       FieldName = 'NOME'
       Origin = '"FUNCIONARIOS"."NOME"'
@@ -199,7 +213,6 @@ object DataModuleGlobal: TDataModuleGlobal
       ')'
       'VALUES'
       '('
-      ''
       '  :"DESCRICAO",'
       '  :"VALOR"'
       ');')
@@ -209,6 +222,11 @@ object DataModuleGlobal: TDataModuleGlobal
     UniDirectional = False
     Left = 192
     Top = 152
+    object IBDataSetItensID: TIntegerField
+      FieldName = 'ID'
+      Origin = '"ITENS_BAR"."ID"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+    end
     object IBDataSetItensDESCRICAO: TIBStringField
       FieldName = 'DESCRICAO'
       Origin = '"ITENS_BAR"."DESCRICAO"'

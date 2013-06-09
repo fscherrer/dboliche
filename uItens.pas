@@ -15,6 +15,7 @@ type
     DBEdit2: TDBEdit;
     DBNavigator1: TDBNavigator;
     lblItensBar: TLabel;
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,5 +29,10 @@ implementation
 uses
   dmGlobal;
 {$R *.dfm}
+
+procedure TfrmItens.FormShow(Sender: TObject);
+begin
+  DataModuleGlobal.IBDataSetItens.Active := true;
+end;
 
 end.
