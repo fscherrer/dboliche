@@ -20,7 +20,7 @@ object frmComandas: TfrmComandas
     Height = 42
     Align = alTop
     AutoSize = False
-    Caption = 'Listagem de Comandas'
+    Caption = ' Listagem de Comandas'
     Color = clSkyBlue
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack
@@ -84,5 +84,6 @@ object frmComandas: TfrmComandas
     Height = 25
     Caption = 'OK'
     TabOrder = 3
+    OnClick = btnOkClick
   end
 end

@@ -41,7 +41,7 @@ object frmFecharComanda: TfrmFecharComanda
     Height = 42
     Align = alTop
     AutoSize = False
-    Caption = 'Fechar Comanda'
+    Caption = ' Fechar Comanda'
     Color = clSkyBlue
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack

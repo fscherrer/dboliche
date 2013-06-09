@@ -3,7 +3,8 @@ unit dmGlobal;
 interface
 
 uses
-  System.SysUtils, System.Classes, Data.DB, IBDatabase, IBCustomDataSet;
+  System.SysUtils, System.Classes, Data.DB, IBDatabase, IBCustomDataSet,
+  IBStoredProc;
 
 type
   TDataModuleGlobal = class(TDataModule)
@@ -48,6 +49,7 @@ type
     IBDataSetComandaID_FUNCIONARIO: TIntegerField;
     IBDataSetComandaID_PISTA: TIntegerField;
     IBDataSetComandaVALOR: TIBBCDField;
+    IBStoredProcAbrirComanda: TIBStoredProc;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -67,11 +69,12 @@ implementation
 procedure TDataModuleGlobal.DataModuleCreate(Sender: TObject);
 begin
     // garante que estará fechado
+    IBTransaction.Active := false;
     IBDatabase.Close;
 
     // configura o caminho da base com base no caminho da aplicação
     IBDatabase.DatabaseName := '\\127.0.0.1\' +
-      ExtractFilePath(ParamStr(0)) + 'database\database.fdb';
+      ExtractFilePath(ParamStr(0)) + '..\..\database\database.fdb';
 
     // abre
     IBDatabase.Open;

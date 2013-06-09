@@ -20,7 +20,7 @@ object frmListaItens: TfrmListaItens
     Height = 42
     Align = alTop
     AutoSize = False
-    Caption = 'Listagem de Itens'
+    Caption = ' Listagem de Itens'
     Color = clSkyBlue
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clBlack

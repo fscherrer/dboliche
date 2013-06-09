@@ -74,6 +74,15 @@ begin
 end;
 /
 
+create trigger comanda_id for comanda
+active before insert position 0
+as
+begin
+  if(new.id is null) then
+    new.id = (select coalesce(max(id), 0) from comanda) + 1;
+end;
+/
+
 create trigger itens_bar_id for itens_bar
 active before insert position 0
 as
@@ -189,4 +198,69 @@ insert into pistas(descricao, disponivel, manutencao)
 insert into pistas(descricao, disponivel, manutencao)
   values('Pista 3', 'S', 'N');
   
+
 select * from pistas;
+select * from comanda;
+select * from cliente_comanda;
+
+delete from cliente_comanda;
+delete from comanda;
+update pistas set disponivel = 'S';
+
+drop procedure ABREPISTA
+CREATE PROCEDURE ABREPISTA (PISTA INTEGER,FUNCIONARIO INTEGER,CLIENTE1 INTEGER,CLIENTE2 INTEGER,CLIENTE3 INTEGER,CLIENTE4 INTEGER,CLIENTE5 INTEGER,CLIENTE6 INTEGER)
+RETURNS (STATUS INTEGER)
+AS
+declare variable temp integer;
+begin
+/* status:
+ 1 - abertura da comanda OK
+ 2 - Pista indisponivel
+*/
+/* Abrir a comanda gravando a data e hora de abertura e funcionario
+   marcar a pista q esta sendo utilizada
+   colocar os clientes dessa comanda
+   marcar na tabela de pistas, que esta pista esta ocupada */
+  Select count( disponivel ) from pistas where id = :pista and
+       disponivel = 'S' into :temp;
+  if ( temp = 0 ) then
+    begin
+       status = 2;
+       suspend;
+       Exit;
+    end
+  update pistas set disponivel = 'N' where id = :pista;
+  
+  Insert into comanda ( abertura, id_funcionario, id_pista, valor )
+              values( CURRENT_TIMESTAMP, :funcionario, :pista, 0 );
+  
+  select id from comanda where id_pista = :pista and fechamento is null into :temp;
+
+  if ( cliente1 <> 0 ) then
+     insert into cliente_comanda ( id_comanda, id_cliente )
+             values ( :temp, :cliente1);
+
+  if ( cliente2 <> 0) then
+     insert into cliente_comanda ( id_comanda, id_cliente )
+             values ( :temp, :cliente2);
+
+  if ( cliente3 <> 0 ) then
+     insert into cliente_comanda ( id_comanda, id_cliente )
+             values ( :temp, :cliente3);
+
+  if ( cliente4 <> 0 ) then
+     insert into cliente_comanda ( id_comanda, id_cliente )
+             values ( :temp, :cliente4);
+
+  if ( cliente5 <> 0 ) then
+     insert into cliente_comanda ( id_comanda, id_cliente )
+             values ( :temp, :cliente5);
+
+  if ( cliente6 <> 0 ) then
+     insert into cliente_comanda ( id_comanda, id_cliente )
+             values ( :temp, :cliente6);
+
+  status = 1;
+  suspend;
+end
+/

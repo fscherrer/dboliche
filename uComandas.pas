@@ -13,6 +13,7 @@ type
     btnFechar: TButton;
     btnOk: TButton;
     lblListaComanda: TLabel;
+    procedure btnOkClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,5 +26,10 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TfrmComandas.btnOkClick(Sender: TObject);
+begin
+  Close;
+end;
 
 end.

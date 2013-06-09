@@ -1,10 +1,11 @@
 object DataModuleGlobal: TDataModuleGlobal
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 364
-  Width = 445
+  Height = 617
+  Width = 621
   object IBDatabase: TIBDatabase
-    DatabaseName = '\\127.0.0.1\X:\delphi\DBoliche\database\database.fdb'
+    Connected = True
+    DatabaseName = '\\127.0.0.1\E:\delphi\DBoliche\database\database.fdb'
     Params.Strings = (
       'user_name=SYSDBA'
       'password=masterkey')
@@ -14,6 +15,7 @@ object DataModuleGlobal: TDataModuleGlobal
     Top = 24
   end
   object IBTransaction: TIBTransaction
+    Active = True
     DefaultDatabase = IBDatabase
     Left = 112
     Top = 24
@@ -204,7 +206,6 @@ object DataModuleGlobal: TDataModuleGlobal
   object IBDataSetItens: TIBDataSet
     Database = IBDatabase
     Transaction = IBTransaction
-    ForcedRefresh = True
     BufferChunks = 1000
     CachedUpdates = False
     DeleteSQL.Strings = (
@@ -366,5 +367,58 @@ object DataModuleGlobal: TDataModuleGlobal
     DataSet = IBDataSetComanda
     Left = 320
     Top = 264
+  end
+  object IBStoredProcAbrirComanda: TIBStoredProc
+    Database = IBDatabase
+    Transaction = IBTransaction
+    StoredProcName = 'ABREPISTA'
+    Left = 64
+    Top = 336
+    ParamData = <
+      item
+        DataType = ftInteger
+        Name = 'STATUS'
+        ParamType = ptOutput
+      end
+      item
+        DataType = ftInteger
+        Name = 'PISTA'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'FUNCIONARIO'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'CLIENTE1'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'CLIENTE2'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'CLIENTE3'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'CLIENTE4'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'CLIENTE5'
+        ParamType = ptInput
+      end
+      item
+        DataType = ftInteger
+        Name = 'CLIENTE6'
+        ParamType = ptInput
+      end>
   end
 end
