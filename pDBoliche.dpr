@@ -12,13 +12,15 @@ uses
   uComanda in 'uComanda.pas' {frmComanda},
   uComandas in 'uComandas.pas' {frmComandas},
   uFecharComanda in 'uFecharComanda.pas' {frmFecharComanda},
-  uListagemItens in 'uListagemItens.pas' {frmListaItens};
+  uListagemItens in 'uListagemItens.pas' {frmListaItens},
+  uLogin in 'uLogin.pas' {frmLogin};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TDataModuleGlobal, DataModuleGlobal);
   Application.CreateForm(TfrmBoliche, frmBoliche);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
