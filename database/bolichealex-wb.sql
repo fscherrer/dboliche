@@ -93,6 +93,15 @@ end;
 /
 
 
+create trigger itens_comanda_id for itens_comanda
+active before insert position 0
+as
+begin
+  if(new.id is null) then
+    new.id = (select coalesce(max(id), 0) from itens_comanda) + 1;
+end;
+/
+
 
 -- Foreign Keys
 -- comanda
@@ -184,9 +193,38 @@ insert into pistas(descricao, disponivel, manutencao)
   values('Pista 3', 'S', 'N');
   
 
+select
+  itens_comanda.id,
+  itens_comanda.id_comanda,
+  itens_comanda.id_item,
+  itens_bar.descricao,
+  itens_comanda.qtdade,
+  itens_comanda.qtdade * itens_bar.valor as valor
+from
+  itens_comanda
+    join itens_bar on itens_bar.id = itens_comanda.id_item
+    
+insert into itens_comanda(
+  id_comanda,
+  id_item,
+  qtdade,
+  valor_item,
+  id_funcionario)
+values(
+  1,
+  3, 
+  1,
+  1,
+  5)
+  
+update itens_comanda set id_item = :"id_item", qtdade = :"qtdade" where id = :"id"
+
 select * from pistas;
 select * from comanda;
 select * from cliente_comanda;
+select * from itens_bar;
+select * from funcionarios;
+select * from itens_comanda;
 
 delete from cliente_comanda;
 delete from comanda;

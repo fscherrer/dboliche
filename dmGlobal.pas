@@ -50,7 +50,16 @@ type
     IBDataSetComandaVALOR: TIBBCDField;
     IBDataSetComandaFECHAMENTO: TDateTimeField;
     IBStoredProcFecharComanda: TIBStoredProc;
+    IBDataSetItensComanda: TIBDataSet;
+    DataSourceItensComanda: TDataSource;
+    IBDataSetItensComandaID: TIntegerField;
+    IBDataSetItensComandaID_COMANDA: TIntegerField;
+    IBDataSetItensComandaID_ITEM: TIntegerField;
+    IBDataSetItensComandaQTDADE: TIntegerField;
+    IBDataSetItensComandaitemd: TStringField;
+    IBDataSetItensComandaVALOR: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
+    procedure IBDataSetItensComandaCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
   public
@@ -80,6 +89,19 @@ begin
     IBDatabase.Open;
 
     IBTransaction.Active := true;
+end;
+
+procedure TDataModuleGlobal.IBDataSetItensComandaCalcFields(DataSet: TDataSet);
+var
+  qtdade: integer;
+begin
+  if IBDataSetItensComanda.FieldByName('qtdade').IsNull then
+     IBDataSetItensComanda.FieldByName('qtdade').value := 1;
+
+  qtdade := IBDataSetItensComanda.FieldByName('qtdade').value;
+
+  IBDataSetItensComandaVALOR.Value := IBDataSetItens.FieldByName('valor').AsFloat
+    * qtdade;
 end;
 
 end.

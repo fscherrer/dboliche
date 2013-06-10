@@ -88,8 +88,6 @@ object frmComandas: TfrmComandas
     Height = 66
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 232
-    ExplicitWidth = 374
     DesignSize = (
       438
       66)
@@ -100,6 +98,7 @@ object frmComandas: TfrmComandas
       Height = 25
       Caption = 'Itens'
       TabOrder = 0
+      OnClick = btnItensClick
     end
     object btnFechar: TButton
       Left = 71
@@ -119,7 +118,6 @@ object frmComandas: TfrmComandas
       Caption = 'OK'
       TabOrder = 2
       OnClick = btnOkClick
-      ExplicitLeft = 345
     end
   end
 end

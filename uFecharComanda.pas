@@ -49,6 +49,7 @@ begin
     ExecProc;
 
     Application.MessageBox('Comanda fechada com sucesso', 'Sucesso');
+    DataModuleGlobal.IBTransaction.CommitRetaining;
     frmFecharComanda.Close;
   end;
 end;

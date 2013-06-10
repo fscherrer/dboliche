@@ -16,6 +16,7 @@ type
     DBNavigator1: TDBNavigator;
     lblItensBar: TLabel;
     procedure FormShow(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -29,6 +30,11 @@ implementation
 uses
   dmGlobal;
 {$R *.dfm}
+
+procedure TfrmItens.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  DataModuleGlobal.IBTransaction.CommitRetaining;
+end;
 
 procedure TfrmItens.FormShow(Sender: TObject);
 begin

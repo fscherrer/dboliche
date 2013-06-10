@@ -18,6 +18,7 @@ type
     procedure btnOkClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
+    procedure btnItensClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,7 +30,7 @@ var
 
 implementation
 uses
-  dmGlobal, uFecharComanda;
+  dmGlobal, uFecharComanda, uItensComanda;
 
 {$R *.dfm}
 
@@ -50,6 +51,15 @@ begin
         FieldByName('valor').Value);
     end;
   end;
+end;
+
+procedure TfrmComandas.btnItensClick(Sender: TObject);
+begin
+  if DataModuleGlobal.IBDataSetComanda.FieldByName('id').IsNull then
+    Application.MessageBox('Selecione uma Comanda para essa operação',
+      'Nenhuma Comanda selecionada')
+  else
+    frmItensComanda.exibir(DataModuleGlobal.IBDataSetComanda.FieldByName('id').Value);
 end;
 
 procedure TfrmComandas.btnOkClick(Sender: TObject);

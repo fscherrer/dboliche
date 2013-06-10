@@ -70,6 +70,7 @@ begin
     if(ParamByName('STATUS').Value = 1) then
     begin
       Application.MessageBox('Comanda aberta com sucesso', 'Sucesso');
+      DataModuleGlobal.IBTransaction.CommitRetaining;
       frmComanda.Close;
     end
     else

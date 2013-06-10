@@ -230,6 +230,7 @@ object DataModuleGlobal: TDataModuleGlobal
       'WHERE ID = :"ID";')
     ParamCheck = True
     UniDirectional = False
+    Active = True
     Left = 192
     Top = 152
     object IBDataSetItensID: TIntegerField
@@ -440,5 +441,88 @@ object DataModuleGlobal: TDataModuleGlobal
         Name = 'IDCOMANDA'
         ParamType = ptInput
       end>
+  end
+  object IBDataSetItensComanda: TIBDataSet
+    Database = IBDatabase
+    Transaction = IBTransaction
+    OnCalcFields = IBDataSetItensComandaCalcFields
+    BufferChunks = 1000
+    CachedUpdates = False
+    DeleteSQL.Strings = (
+      'delete from itens_comanda where id = :"id"')
+    InsertSQL.Strings = (
+      'insert into itens_comanda('
+      '  id_comanda,'
+      '  id_item,'
+      '  qtdade,'
+      '  valor_item)'
+      'values('
+      '  :"id_comanda",'
+      '  :"id_item", '
+      '  :"qtdade",'
+      '  :"valor_item")')
+    SelectSQL.Strings = (
+      'select'
+      '  itens_comanda.id,'
+      '  itens_comanda.id_comanda,'
+      '  itens_comanda.id_item,'
+      '  itens_bar.descricao,'
+      '  itens_comanda.qtdade,'
+      '  itens_comanda.qtdade * itens_bar.valor as valor'
+      'from'
+      '  itens_comanda'
+      '    join itens_bar on itens_bar.id = itens_comanda.id_item'
+      'where'
+      '  itens_comanda.id_comanda = :"idComanda"')
+    ModifySQL.Strings = (
+      
+        'update itens_comanda set id_item = :"id_item", qtdade = :"qtdade' +
+        '" where id = :"id"')
+    ParamCheck = True
+    UniDirectional = False
+    Left = 304
+    Top = 416
+    object IBDataSetItensComandaID: TIntegerField
+      FieldName = 'ID'
+      Origin = '"ITENS_COMANDA"."ID"'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Visible = False
+    end
+    object IBDataSetItensComandaID_COMANDA: TIntegerField
+      FieldName = 'ID_COMANDA'
+      Origin = '"ITENS_COMANDA"."ID_COMANDA"'
+      Visible = False
+    end
+    object IBDataSetItensComandaID_ITEM: TIntegerField
+      FieldName = 'ID_ITEM'
+      Origin = '"ITENS_COMANDA"."ID_ITEM"'
+      Visible = False
+    end
+    object IBDataSetItensComandaitemd: TStringField
+      DisplayLabel = 'Item'
+      FieldKind = fkLookup
+      FieldName = 'ITEM'
+      LookupDataSet = IBDataSetItens
+      LookupKeyFields = 'ID'
+      LookupResultField = 'DESCRICAO'
+      KeyFields = 'ID_ITEM'
+      Size = 50
+      Lookup = True
+    end
+    object IBDataSetItensComandaQTDADE: TIntegerField
+      DisplayLabel = 'Quantidade'
+      FieldName = 'QTDADE'
+      Origin = '"ITENS_COMANDA"."QTDADE"'
+    end
+    object IBDataSetItensComandaVALOR: TFloatField
+      FieldKind = fkCalculated
+      FieldName = 'VALOR'
+      Calculated = True
+    end
+  end
+  object DataSourceItensComanda: TDataSource
+    DataSet = IBDataSetItensComanda
+    Left = 440
+    Top = 416
   end
 end

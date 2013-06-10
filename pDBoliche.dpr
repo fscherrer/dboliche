@@ -13,7 +13,8 @@ uses
   uComandas in 'uComandas.pas' {frmComandas},
   uFecharComanda in 'uFecharComanda.pas' {frmFecharComanda},
   uListagemItens in 'uListagemItens.pas' {frmListaItens},
-  uLogin in 'uLogin.pas' {frmLogin};
+  uLogin in 'uLogin.pas' {frmLogin},
+  uItensComanda in 'uItensComanda.pas' {frmItensComanda};
 
 {$R *.res}
 
@@ -35,5 +36,6 @@ begin
   Application.CreateForm(TfrmBoliche, frmBoliche);
   Application.CreateForm(TfrmComanda, frmComanda);
   Application.CreateForm(TfrmComandas, frmComandas);
+  Application.CreateForm(TfrmItensComanda, frmItensComanda);
   Application.Run;
 end.
