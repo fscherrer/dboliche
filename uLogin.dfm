@@ -3,11 +3,14 @@ object frmLogin: TfrmLogin
   Top = 0
   ActiveControl = edtUsuario
   BiDiMode = bdLeftToRight
-  BorderIcons = [biSystemMenu]
-  BorderStyle = bsNone
-  ClientHeight = 209
-  ClientWidth = 298
+  BorderStyle = bsDialog
+  ClientHeight = 207
+  ClientWidth = 294
   Color = clBtnFace
+  Constraints.MaxHeight = 235
+  Constraints.MaxWidth = 300
+  Constraints.MinHeight = 235
+  Constraints.MinWidth = 300
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
@@ -76,7 +79,7 @@ object frmLogin: TfrmLogin
     Font.Style = []
     ParentFont = False
     TabOrder = 0
-    Text = 'Usu'#225'rio'
+    Text = 'usuario'
   end
   object edtSenha: TEdit
     Left = 111
@@ -91,7 +94,7 @@ object frmLogin: TfrmLogin
     ParentFont = False
     PasswordChar = '*'
     TabOrder = 1
-    Text = 'Senha'
+    Text = 'usuario'
   end
   object btnOk: TButton
     Left = 199
@@ -99,6 +102,7 @@ object frmLogin: TfrmLogin
     Width = 64
     Height = 41
     Caption = 'OK'
+    Default = True
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
     Font.Height = -16
@@ -106,6 +110,7 @@ object frmLogin: TfrmLogin
     Font.Style = []
     ParentFont = False
     TabOrder = 2
+    OnClick = btnOkClick
   end
   object btnCancelar: TButton
     Left = 96

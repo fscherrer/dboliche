@@ -16,6 +16,7 @@ type
     btnOk: TButton;
     btnCancelar: TButton;
     procedure btnCancelarClick(Sender: TObject);
+    procedure btnOkClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -26,12 +27,33 @@ var
   frmLogin: TfrmLogin;
 
 implementation
+uses
+  uPrincipal, uDBoliche;
 
 {$R *.dfm}
 
 procedure TfrmLogin.btnCancelarClick(Sender: TObject);
 begin
-Close
+  Close;
+end;
+
+procedure TfrmLogin.btnOkClick(Sender: TObject);
+begin
+  if (edtUsuario.Text = 'usuario') and (edtSenha.Text = 'usuario') then
+  begin
+    Hide;
+    frmBoliche.ShowModal;
+    Close;
+  end
+  else if (edtUsuario.Text = 'admin') and (edtSenha.Text = 'admin') then
+  begin
+    Hide;
+    frmPrincipal.ShowModal;
+    Close;
+  end
+  else
+    Application.MessageBox('Usuário e/ou senha inválidos!', 'Falha no login');
+
 end;
 
 end.
