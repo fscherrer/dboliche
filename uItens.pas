@@ -16,6 +16,7 @@ type
     DBNavigator1: TDBNavigator;
     lblItensBar: TLabel;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -33,6 +34,14 @@ uses
 procedure TfrmItens.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   DataModuleGlobal.IBTransaction.CommitRetaining;
+end;
+
+procedure TfrmItens.FormCreate(Sender: TObject);
+begin
+  Constraints.MinHeight := Height;
+  Constraints.MinWidth := Width;
+  Constraints.MaxHeight := Height;
+  Constraints.MaxWidth := Width;
 end;
 
 end.

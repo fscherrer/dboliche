@@ -18,6 +18,7 @@ type
     procedure btnOkClick(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure btnItensClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -64,6 +65,12 @@ end;
 procedure TfrmComandas.btnOkClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TfrmComandas.FormCreate(Sender: TObject);
+begin
+  Constraints.MinHeight := Height;
+  Constraints.MinWidth := Width;
 end;
 
 end.

@@ -25,6 +25,7 @@ type
     DBNavigator: TDBNavigator;
     DBRadioGroupSexo: TDBRadioGroup;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,6 +44,14 @@ Uses
 procedure TfrmClientes.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   DataModuleGlobal.IBTransaction.CommitRetaining;
+end;
+
+procedure TfrmClientes.FormCreate(Sender: TObject);
+begin
+  Constraints.MinHeight := Height;
+  Constraints.MinWidth := Width;
+  Constraints.MaxHeight := Height;
+  Constraints.MaxWidth := Width;
 end;
 
 end.

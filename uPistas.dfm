@@ -12,6 +12,7 @@ object frmPistas: TfrmPistas
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object lblDescricao: TLabel

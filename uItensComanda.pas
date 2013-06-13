@@ -15,6 +15,7 @@ type
     btnOk: TButton;
     procedure btnOkClick(Sender: TObject);
     procedure exibir(idComandaExibir: integer);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -43,6 +44,12 @@ begin
     idComandaExibir;
   DataModuleGlobal.IBDataSetItensComanda.Open;
   ShowModal;
+end;
+
+procedure TfrmItensComanda.FormCreate(Sender: TObject);
+begin
+  Constraints.MinHeight := Height;
+  Constraints.MinWidth := Width;
 end;
 
 end.

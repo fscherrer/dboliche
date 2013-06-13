@@ -86,6 +86,11 @@ var
   i: integer;
   select: string;
 begin
+  Constraints.MinHeight := Height;
+  Constraints.MinWidth := Width;
+  Constraints.MaxHeight := Height;
+  Constraints.MaxWidth := Width;
+
   lookups[1] := DBLookupComboBox1;
   lookups[2] := DBLookupComboBox2;
   lookups[3] := DBLookupComboBox3;

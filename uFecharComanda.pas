@@ -20,6 +20,7 @@ type
     procedure btnCancelarClick(Sender: TObject);
     procedure fechar(id: integer; abertura: string; pista: string; total: real);
     procedure btnOKClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -61,6 +62,14 @@ begin
   editPista.Text := pista;
   editTotal.Text := FormatFloat('###,##0.00', total);
   ShowModal;
+end;
+
+procedure TfrmFecharComanda.FormCreate(Sender: TObject);
+begin
+  Constraints.MinHeight := Height;
+  Constraints.MinWidth := Width;
+  Constraints.MaxHeight := Height;
+  Constraints.MaxWidth := Width;
 end;
 
 end.

@@ -16,6 +16,7 @@ type
     DBRadioGroupDisponivel: TDBRadioGroup;
     DBRadioGroupManutencao: TDBRadioGroup;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,6 +35,14 @@ dmGlobal;
 procedure TfrmPistas.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   DataModuleGlobal.IBTransaction.CommitRetaining;
+end;
+
+procedure TfrmPistas.FormCreate(Sender: TObject);
+begin
+  Constraints.MinHeight := Height;
+  Constraints.MinWidth := Width;
+  Constraints.MaxHeight := Height;
+  Constraints.MaxWidth := Width;
 end;
 
 end.
