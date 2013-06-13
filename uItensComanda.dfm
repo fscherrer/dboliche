@@ -30,21 +30,6 @@ object frmItensComanda: TfrmItensComanda
     Columns = <
       item
         Expanded = False
-        FieldName = 'ID'
-        Visible = False
-      end
-      item
-        Expanded = False
-        FieldName = 'ID_COMANDA'
-        Visible = False
-      end
-      item
-        Expanded = False
-        FieldName = 'ID_ITEM'
-        Visible = False
-      end
-      item
-        Expanded = False
         FieldName = 'ITEM'
         Visible = True
       end
@@ -55,7 +40,8 @@ object frmItensComanda: TfrmItensComanda
       end
       item
         Expanded = False
-        FieldName = 'VALOR'
+        FieldName = 'VALOR_ITEM'
+        Title.Caption = 'Valor'
         Visible = True
       end>
   end

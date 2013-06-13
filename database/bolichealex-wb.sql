@@ -219,6 +219,25 @@ values(
   
 update itens_comanda set id_item = :"id_item", qtdade = :"qtdade" where id = :"id"
 
+insert into itens_comanda(
+  id_comanda,
+  id_item,
+  qtdade,
+  valor_item)
+values(
+  :"id_comanda",
+  :"id_item", 
+  :"qtdade",
+  (
+    select
+      valor * :"qtdade"
+    from 
+      itens_bar
+    where
+      itens_bar.id = :"id_item"
+  ))
+
+
 select * from pistas;
 select * from comanda;
 select * from cliente_comanda;
@@ -245,6 +264,7 @@ group by
 
 delete from cliente_comanda;
 delete from comanda;
+delete from itens_comanda;
 update pistas set disponivel = 'S';
 
 select 

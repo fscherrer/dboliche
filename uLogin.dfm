@@ -19,6 +19,7 @@ object frmLogin: TfrmLogin
   OldCreateOrder = False
   ParentBiDiMode = False
   Position = poDesktopCenter
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object lblUsuario: TLabel

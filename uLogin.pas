@@ -19,6 +19,7 @@ type
     lblInfoUsuarioOperacional: TLabel;
     procedure btnCancelarClick(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -54,6 +55,11 @@ begin
   else
     Application.MessageBox('Usuário e/ou senha inválidos!', 'Falha no login');
 
+end;
+
+procedure TfrmLogin.FormCreate(Sender: TObject);
+begin
+  Position := poDesktopCenter;
 end;
 
 end.

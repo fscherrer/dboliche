@@ -42,6 +42,8 @@ begin
   Constraints.MinWidth := Width;
   Constraints.MaxHeight := Height;
   Constraints.MaxWidth := Width;
+
+  Position := poDesktopCenter;
 end;
 
 end.

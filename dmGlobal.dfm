@@ -475,9 +475,7 @@ object DataModuleGlobal: TDataModuleGlobal
       '  itens_comanda.id,'
       '  itens_comanda.id_comanda,'
       '  itens_comanda.id_item,'
-      '  itens_bar.descricao,'
-      '  itens_comanda.qtdade,'
-      '  itens_comanda.qtdade * itens_bar.valor as valor'
+      '  itens_comanda.qtdade'
       'from'
       '  itens_comanda'
       '    join itens_bar on itens_bar.id = itens_comanda.id_item'
@@ -524,9 +522,9 @@ object DataModuleGlobal: TDataModuleGlobal
       FieldName = 'QTDADE'
       Origin = '"ITENS_COMANDA"."QTDADE"'
     end
-    object IBDataSetItensComandaVALOR: TFloatField
+    object IBDataSetItensComandaVALOR_ITEM: TFloatField
       FieldKind = fkCalculated
-      FieldName = 'VALOR'
+      FieldName = 'VALOR_ITEM'
       Calculated = True
     end
   end
@@ -534,5 +532,34 @@ object DataModuleGlobal: TDataModuleGlobal
     DataSet = IBDataSetItensComanda
     Left = 336
     Top = 344
+  end
+  object IBQueryValorItem: TIBQuery
+    Database = IBDatabase
+    Transaction = IBTransaction
+    Active = True
+    BufferChunks = 1000
+    CachedUpdates = False
+    ParamCheck = True
+    SQL.Strings = (
+      'select'
+      '  valor'
+      'from'
+      '  itens_bar'
+      'where'
+      '  id = :"id"')
+    Left = 64
+    Top = 328
+    ParamData = <
+      item
+        DataType = ftUnknown
+        Name = 'id'
+        ParamType = ptUnknown
+      end>
+    object IBQueryValorItemVALOR: TIBBCDField
+      FieldName = 'VALOR'
+      Origin = '"ITENS_BAR"."VALOR"'
+      Precision = 9
+      Size = 2
+    end
   end
 end

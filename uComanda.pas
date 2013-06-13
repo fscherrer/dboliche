@@ -91,6 +91,8 @@ begin
   Constraints.MaxHeight := Height;
   Constraints.MaxWidth := Width;
 
+  Position := poDesktopCenter;
+
   lookups[1] := DBLookupComboBox1;
   lookups[2] := DBLookupComboBox2;
   lookups[3] := DBLookupComboBox3;

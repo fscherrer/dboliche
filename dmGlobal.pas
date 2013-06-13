@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, Data.DB, IBDatabase, IBCustomDataSet,
-  IBStoredProc;
+  IBStoredProc, IBSQL, IBQuery;
 
 type
   TDataModuleGlobal = class(TDataModule)
@@ -57,7 +57,9 @@ type
     IBDataSetItensComandaID_ITEM: TIntegerField;
     IBDataSetItensComandaQTDADE: TIntegerField;
     IBDataSetItensComandaitemd: TStringField;
-    IBDataSetItensComandaVALOR: TFloatField;
+    IBDataSetItensComandaVALOR_ITEM: TFloatField;
+    IBQueryValorItem: TIBQuery;
+    IBQueryValorItemVALOR: TIBBCDField;
     procedure DataModuleCreate(Sender: TObject);
     procedure IBDataSetItensComandaAfterInsert(DataSet: TDataSet);
     procedure IBDataSetItensComandaCalcFields(DataSet: TDataSet);
@@ -71,6 +73,8 @@ var
   DataModuleGlobal: TDataModuleGlobal;
 
 implementation
+uses
+  uUtils;
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
@@ -111,8 +115,18 @@ begin
 
   qtdade := IBDataSetItensComanda.FieldByName('qtdade').value;
 
-  IBDataSetItensComandaVALOR.Value := IBDataSetItens.FieldByName('valor').AsFloat
-    * qtdade;
+  IBQueryValorItem.Close;
+
+  IBQueryValorItem.ParamByName('id').Value :=
+    IBDataSetItensComanda.FieldByName('id_item').Value;
+
+  IBQueryValorItem.Open;
+
+  IBDataSetItensComanda.FieldByName('valor_item').Value :=
+    IBQueryValorItem.FieldByName('valor').Value * qtdade;
+
+//  frmUtils.debug(IBDataSetItensComanda.FieldByName('id_item').AsString
+//    + ': ' + IBQueryValorItem.FieldByName('valor').AsString);
 end;
 
 end.

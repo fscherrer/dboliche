@@ -17,6 +17,7 @@ type
     procedure btnItensClick(Sender: TObject);
     procedure btnPistasClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -56,6 +57,11 @@ end;
 procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   frmLogin.Close;
+end;
+
+procedure TfrmPrincipal.FormCreate(Sender: TObject);
+begin
+  Position := poDesktopCenter;
 end;
 
 end.

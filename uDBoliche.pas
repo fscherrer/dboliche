@@ -13,6 +13,7 @@ type
     procedure btnAbrirComandaClick(Sender: TObject);
     procedure btnComandasClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -41,6 +42,11 @@ end;
 procedure TfrmBoliche.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   frmLogin.Close;
+end;
+
+procedure TfrmBoliche.FormCreate(Sender: TObject);
+begin
+  Position := poDesktopCenter;
 end;
 
 end.

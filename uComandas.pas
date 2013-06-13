@@ -71,6 +71,7 @@ procedure TfrmComandas.FormCreate(Sender: TObject);
 begin
   Constraints.MinHeight := Height;
   Constraints.MinWidth := Width;
+  Position := poDesktopCenter;
 end;
 
 end.
