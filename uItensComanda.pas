@@ -11,10 +11,11 @@ type
   TfrmItensComanda = class(TForm)
     DBGrid1: TDBGrid;
     Panel1: TPanel;
-    DBNavigator1: TDBNavigator;
+    dbNavigator: TDBNavigator;
     btnOk: TButton;
+    lblListaItens: TLabel;
     procedure btnOkClick(Sender: TObject);
-    procedure exibir(idComandaExibir: integer);
+    procedure exibir(idComandaExibir: integer; permiteEdicao: boolean);
     procedure FormCreate(Sender: TObject);
   private
     { Private declarations }
@@ -37,12 +38,15 @@ begin
   Close;
 end;
 
-procedure TfrmItensComanda.exibir(idComandaExibir: integer);
+procedure TfrmItensComanda.exibir(idComandaExibir: integer;  permiteEdicao: boolean);
 begin
   DataModuleGlobal.IBDataSetItensComanda.Close;
   DataModuleGlobal.IBDataSetItensComanda.ParamByName('id_comanda').Value :=
     idComandaExibir;
   DataModuleGlobal.IBDataSetItensComanda.Open;
+
+  dbNavigator.Enabled := permiteEdicao;
+
   ShowModal;
 end;
 

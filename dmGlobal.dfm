@@ -469,7 +469,9 @@ object DataModuleGlobal: TDataModuleGlobal
       '  :"id_comanda",'
       '  :"id_item", '
       '  :"qtdade",'
-      '  :"valor_item")')
+      
+        '  (select valor from itens_bar where itens_bar.id = :"id_item") ' +
+        '* :"qtdade")')
     SelectSQL.Strings = (
       'select'
       '  itens_comanda.id,'
@@ -482,9 +484,16 @@ object DataModuleGlobal: TDataModuleGlobal
       'where'
       '  itens_comanda.id_comanda = :"id_comanda"')
     ModifySQL.Strings = (
+      'update '
+      '  itens_comanda '
+      'set '
+      '  id_item = :"id_item", '
+      '  qtdade = :"qtdade", '
       
-        'update itens_comanda set id_item = :"id_item", qtdade = :"qtdade' +
-        '", valor_item = :"valor_item" where id = :"id"')
+        '  valor_item = (select valor from itens_bar where itens_bar.id =' +
+        ' :"id_item") * :"qtdade"'
+      'where '
+      '  id = :"id"')
     ParamCheck = True
     UniDirectional = False
     Left = 208

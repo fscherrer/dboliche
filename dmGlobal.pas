@@ -57,9 +57,9 @@ type
     IBDataSetItensComandaID_ITEM: TIntegerField;
     IBDataSetItensComandaQTDADE: TIntegerField;
     IBDataSetItensComandaitemd: TStringField;
-    IBDataSetItensComandaVALOR_ITEM: TFloatField;
     IBQueryValorItem: TIBQuery;
     IBQueryValorItemVALOR: TIBBCDField;
+    IBDataSetItensComandaVALOR_ITEM: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
     procedure IBDataSetItensComandaAfterInsert(DataSet: TDataSet);
     procedure IBDataSetItensComandaCalcFields(DataSet: TDataSet);
@@ -88,6 +88,7 @@ begin
     // configura o caminho da base com base no caminho da aplicação
     IBDatabase.DatabaseName := '\\127.0.0.1\' +
       ExtractFilePath(ParamStr(0)) + '..\..\database\database.fdb';
+//      ExtractFilePath(ParamStr(0)) + 'database\database.fdb';
 
     // abre
     IBDatabase.Open;

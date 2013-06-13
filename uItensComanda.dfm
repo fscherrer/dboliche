@@ -14,11 +14,33 @@ object frmItensComanda: TfrmItensComanda
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
-  object DBGrid1: TDBGrid
+  object lblListaItens: TLabel
     Left = 0
     Top = 0
     Width = 595
-    Height = 246
+    Height = 42
+    Align = alTop
+    AutoSize = False
+    Caption = ' Itens'
+    Color = clSkyBlue
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = -21
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentColor = False
+    ParentFont = False
+    Transparent = False
+    Layout = tlCenter
+    ExplicitLeft = 8
+    ExplicitTop = 8
+    ExplicitWidth = 331
+  end
+  object DBGrid1: TDBGrid
+    Left = 0
+    Top = 42
+    Width = 595
+    Height = 204
     Align = alClient
     DataSource = DataModuleGlobal.DataSourceItensComanda
     TabOrder = 0
@@ -55,7 +77,7 @@ object frmItensComanda: TfrmItensComanda
     DesignSize = (
       595
       41)
-    object DBNavigator1: TDBNavigator
+    object dbNavigator: TDBNavigator
       Left = 169
       Top = 8
       Width = 225

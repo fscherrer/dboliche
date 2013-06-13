@@ -19,6 +19,7 @@ type
     procedure btnFecharClick(Sender: TObject);
     procedure btnItensClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -49,6 +50,9 @@ begin
         FieldByName('abertura').Value,
         FieldByName('pista').Value,
         FieldByName('valor').Value);
+
+      DataModuleGlobal.IBDataSetComanda.Close;
+      DataModuleGlobal.IBDataSetComanda.open;
     end;
   end;
 end;
@@ -59,7 +63,13 @@ begin
     Application.MessageBox('Selecione uma Comanda para essa operação',
       'Nenhuma Comanda selecionada')
   else
-    frmItensComanda.exibir(DataModuleGlobal.IBDataSetComanda.FieldByName('id').Value);
+  begin
+    frmItensComanda.exibir(
+      DataModuleGlobal.IBDataSetComanda.FieldByName('id').Value,
+      DataModuleGlobal.IBDataSetComanda.FieldByName('fechamento').Value = Null);
+    DataModuleGlobal.IBDataSetComanda.Close;
+    DataModuleGlobal.IBDataSetComanda.open;
+  end;
 end;
 
 procedure TfrmComandas.btnOkClick(Sender: TObject);
@@ -72,6 +82,12 @@ begin
   Constraints.MinHeight := Height;
   Constraints.MinWidth := Width;
   Position := poDesktopCenter;
+end;
+
+procedure TfrmComandas.FormShow(Sender: TObject);
+begin
+  DataModuleGlobal.IBDataSetComanda.Close;
+  DataModuleGlobal.IBDataSetComanda.open;
 end;
 
 end.
