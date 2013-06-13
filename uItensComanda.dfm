@@ -11,7 +11,6 @@ object frmItensComanda: TfrmItensComanda
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object DBGrid1: TDBGrid
@@ -27,6 +26,37 @@ object frmItensComanda: TfrmItensComanda
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    Columns = <
+      item
+        Expanded = False
+        FieldName = 'ID'
+        Visible = False
+      end
+      item
+        Expanded = False
+        FieldName = 'ID_COMANDA'
+        Visible = False
+      end
+      item
+        Expanded = False
+        FieldName = 'ID_ITEM'
+        Visible = False
+      end
+      item
+        Expanded = False
+        FieldName = 'ITEM'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'QTDADE'
+        Visible = True
+      end
+      item
+        Expanded = False
+        FieldName = 'VALOR'
+        Visible = True
+      end>
   end
   object Panel1: TPanel
     Left = 0
@@ -35,9 +65,6 @@ object frmItensComanda: TfrmItensComanda
     Height = 41
     Align = alBottom
     TabOrder = 1
-    ExplicitLeft = 264
-    ExplicitTop = 255
-    ExplicitWidth = 185
     DesignSize = (
       595
       41)

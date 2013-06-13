@@ -21,7 +21,6 @@ type
     DBNavigator1: TDBNavigator;
     DBRadioGroupSexo: TDBRadioGroup;
     DBRadioGroupAtivo: TDBRadioGroup;
-    procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
@@ -41,11 +40,6 @@ USES
 procedure TfrmFuncionarios.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   DataModuleGlobal.IBTransaction.CommitRetaining;
-end;
-
-procedure TfrmFuncionarios.FormShow(Sender: TObject);
-begin
-  DataModuleGlobal.IBDataSetFuncionario.Active := true;
 end;
 
 end.

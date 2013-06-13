@@ -24,7 +24,6 @@ type
     lblClientes: TLabel;
     DBNavigator: TDBNavigator;
     DBRadioGroupSexo: TDBRadioGroup;
-    procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
@@ -44,11 +43,6 @@ Uses
 procedure TfrmClientes.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   DataModuleGlobal.IBTransaction.CommitRetaining;
-end;
-
-procedure TfrmClientes.FormShow(Sender: TObject);
-begin
-  DataModuleGlobal.IBDataSet.Active := true;
 end;
 
 end.

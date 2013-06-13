@@ -4,12 +4,12 @@ object frmLogin: TfrmLogin
   ActiveControl = edtUsuario
   BiDiMode = bdLeftToRight
   BorderStyle = bsDialog
-  ClientHeight = 207
+  ClientHeight = 232
   ClientWidth = 294
   Color = clBtnFace
-  Constraints.MaxHeight = 235
+  Constraints.MaxHeight = 260
   Constraints.MaxWidth = 300
-  Constraints.MinHeight = 235
+  Constraints.MinHeight = 260
   Constraints.MinWidth = 300
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -66,6 +66,20 @@ object frmLogin: TfrmLogin
     Transparent = False
     Layout = tlCenter
   end
+  object lblInfoUsuarioAdmin: TLabel
+    Left = 64
+    Top = 145
+    Width = 160
+    Height = 13
+    Caption = #193'rea administrativa: admin/admin'
+  end
+  object lblInfoUsuarioOperacional: TLabel
+    Left = 64
+    Top = 161
+    Width = 184
+    Height = 13
+    Caption = 'Interface operacional: usuario/usuario'
+  end
   object edtUsuario: TEdit
     Left = 111
     Top = 56
@@ -97,8 +111,8 @@ object frmLogin: TfrmLogin
     Text = 'usuario'
   end
   object btnOk: TButton
-    Left = 199
-    Top = 160
+    Left = 152
+    Top = 180
     Width = 64
     Height = 41
     Caption = 'OK'
@@ -113,8 +127,8 @@ object frmLogin: TfrmLogin
     OnClick = btnOkClick
   end
   object btnCancelar: TButton
-    Left = 96
-    Top = 160
+    Left = 64
+    Top = 180
     Width = 82
     Height = 41
     BiDiMode = bdLeftToRight

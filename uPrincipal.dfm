@@ -2,15 +2,20 @@ object frmPrincipal: TfrmPrincipal
   Left = 0
   Top = 0
   Caption = 'DBoliche'
-  ClientHeight = 240
-  ClientWidth = 238
+  ClientHeight = 218
+  ClientWidth = 221
   Color = clBtnFace
+  Constraints.MaxHeight = 256
+  Constraints.MaxWidth = 237
+  Constraints.MinHeight = 256
+  Constraints.MinWidth = 237
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -11
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnClose = FormClose
   PixelsPerInch = 96
   TextHeight = 13
   object btnClientes: TButton
@@ -25,7 +30,7 @@ object frmPrincipal: TfrmPrincipal
   end
   object btnPistas: TButton
     Left = 16
-    Top = 136
+    Top = 120
     Width = 85
     Height = 85
     Caption = 'Pistas'
@@ -33,7 +38,7 @@ object frmPrincipal: TfrmPrincipal
     OnClick = btnPistasClick
   end
   object btnFuncionarios: TButton
-    Left = 136
+    Left = 120
     Top = 16
     Width = 85
     Height = 85
@@ -42,8 +47,8 @@ object frmPrincipal: TfrmPrincipal
     OnClick = btnFuncionariosClick
   end
   object btnItens: TButton
-    Left = 136
-    Top = 136
+    Left = 120
+    Top = 120
     Width = 85
     Height = 85
     Caption = 'Itens'

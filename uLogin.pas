@@ -15,6 +15,8 @@ type
     lblLogin: TLabel;
     btnOk: TButton;
     btnCancelar: TButton;
+    lblInfoUsuarioAdmin: TLabel;
+    lblInfoUsuarioOperacional: TLabel;
     procedure btnCancelarClick(Sender: TObject);
     procedure btnOkClick(Sender: TObject);
   private
@@ -42,14 +44,12 @@ begin
   if (edtUsuario.Text = 'usuario') and (edtSenha.Text = 'usuario') then
   begin
     Hide;
-    frmBoliche.ShowModal;
-    Close;
+    frmBoliche.Show;
   end
   else if (edtUsuario.Text = 'admin') and (edtSenha.Text = 'admin') then
   begin
     Hide;
-    frmPrincipal.ShowModal;
-    Close;
+    frmPrincipal.Show;
   end
   else
     Application.MessageBox('Usuário e/ou senha inválidos!', 'Falha no login');

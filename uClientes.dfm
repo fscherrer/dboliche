@@ -12,7 +12,6 @@ object frmClientes: TfrmClientes
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lblNome: TLabel

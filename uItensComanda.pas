@@ -14,7 +14,6 @@ type
     DBNavigator1: TDBNavigator;
     btnOk: TButton;
     procedure btnOkClick(Sender: TObject);
-    procedure FormShow(Sender: TObject);
     procedure exibir(idComandaExibir: integer);
   private
     { Private declarations }
@@ -37,15 +36,12 @@ begin
   Close;
 end;
 
-procedure TfrmItensComanda.FormShow(Sender: TObject);
-begin
-  DataModuleGlobal.IBDataSetItensComanda.Close;
-  DataModuleGlobal.IBDataSetItensComanda.Open;
-end;
-
 procedure TfrmItensComanda.exibir(idComandaExibir: integer);
 begin
-  DataModuleGlobal.IBDataSetItensComanda.ParamByName('idComanda').Value := idComandaExibir;
+  DataModuleGlobal.IBDataSetItensComanda.Close;
+  DataModuleGlobal.IBDataSetItensComanda.ParamByName('id_comanda').Value :=
+    idComandaExibir;
+  DataModuleGlobal.IBDataSetItensComanda.Open;
   ShowModal;
 end;
 

@@ -12,7 +12,6 @@ object frmFuncionarios: TfrmFuncionarios
   Font.Style = []
   OldCreateOrder = False
   OnClose = FormClose
-  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lblFuncionarios: TLabel
@@ -97,7 +96,7 @@ object frmFuncionarios: TfrmFuncionarios
   object DBEdit4: TDBEdit
     Left = 8
     Top = 181
-    Width = 65
+    Width = 89
     Height = 21
     DataField = 'TELEFONE'
     DataSource = DataModuleGlobal.DataSourceFuncionarios

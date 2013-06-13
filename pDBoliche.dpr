@@ -14,15 +14,16 @@ uses
   uFecharComanda in 'uFecharComanda.pas' {frmFecharComanda},
   uListagemItens in 'uListagemItens.pas' {frmListaItens},
   uLogin in 'uLogin.pas' {frmLogin},
-  uItensComanda in 'uItensComanda.pas' {frmItensComanda};
+  uItensComanda in 'uItensComanda.pas' {frmItensComanda},
+  uUtils in 'uUtils.pas' {frmUtils};
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TDataModuleGlobal, DataModuleGlobal);
+  Application.CreateForm(TfrmLogin, frmLogin);
   Application.CreateForm(TfrmBoliche, frmBoliche);
   Application.CreateForm(TfrmPrincipal, frmPrincipal);
   Application.CreateForm(TfrmPistas, frmPistas);
@@ -37,5 +38,6 @@ begin
   Application.CreateForm(TfrmComanda, frmComanda);
   Application.CreateForm(TfrmComandas, frmComandas);
   Application.CreateForm(TfrmItensComanda, frmItensComanda);
+  Application.CreateForm(TfrmUtils, frmUtils);
   Application.Run;
 end.

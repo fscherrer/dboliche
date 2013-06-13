@@ -1,8 +1,8 @@
 object DataModuleGlobal: TDataModuleGlobal
   OldCreateOrder = False
   OnCreate = DataModuleCreate
-  Height = 617
-  Width = 621
+  Height = 420
+  Width = 445
   object IBDatabase: TIBDatabase
     Connected = True
     DatabaseName = '\\127.0.0.1\E:\delphi\DBoliche\database\database.fdb'
@@ -11,14 +11,15 @@ object DataModuleGlobal: TDataModuleGlobal
       'password=masterkey')
     LoginPrompt = False
     ServerType = 'IBServer'
-    Left = 24
+    AllowStreamedConnected = False
+    Left = 64
     Top = 24
   end
   object IBTransaction: TIBTransaction
     Active = True
     DefaultDatabase = IBDatabase
-    Left = 112
-    Top = 24
+    Left = 64
+    Top = 88
   end
   object IBDataSet: TIBDataSet
     Database = IBDatabase
@@ -62,8 +63,9 @@ object DataModuleGlobal: TDataModuleGlobal
       'WHERE ID = :"ID";')
     ParamCheck = True
     UniDirectional = False
-    Left = 192
-    Top = 24
+    Active = True
+    Left = 208
+    Top = 32
     object IBDataSetID: TIntegerField
       FieldName = 'ID'
       Origin = '"CLIENTES"."ID"'
@@ -111,7 +113,7 @@ object DataModuleGlobal: TDataModuleGlobal
   end
   object DataSource: TDataSource
     DataSet = IBDataSet
-    Left = 320
+    Left = 336
     Top = 32
   end
   object IBDataSetFuncionario: TIBDataSet
@@ -153,7 +155,8 @@ object DataModuleGlobal: TDataModuleGlobal
       'WHERE ID = :"ID";')
     ParamCheck = True
     UniDirectional = False
-    Left = 192
+    Active = True
+    Left = 208
     Top = 88
     object IBDataSetFuncionarioID: TIntegerField
       FieldName = 'ID'
@@ -195,12 +198,12 @@ object DataModuleGlobal: TDataModuleGlobal
   end
   object DataSourceFuncionarios: TDataSource
     DataSet = IBDataSetFuncionario
-    Left = 320
+    Left = 336
     Top = 88
   end
   object DataSourceItens: TDataSource
     DataSet = IBDataSetItens
-    Left = 320
+    Left = 336
     Top = 152
   end
   object IBDataSetItens: TIBDataSet
@@ -231,7 +234,7 @@ object DataModuleGlobal: TDataModuleGlobal
     ParamCheck = True
     UniDirectional = False
     Active = True
-    Left = 192
+    Left = 208
     Top = 152
     object IBDataSetItensID: TIntegerField
       FieldName = 'ID'
@@ -280,7 +283,8 @@ object DataModuleGlobal: TDataModuleGlobal
       'WHERE ID = :"ID";')
     ParamCheck = True
     UniDirectional = False
-    Left = 192
+    Active = True
+    Left = 208
     Top = 208
     object IBDataSetPistasID: TIntegerField
       FieldName = 'ID'
@@ -307,7 +311,7 @@ object DataModuleGlobal: TDataModuleGlobal
   end
   object DataSourcePistas: TDataSource
     DataSet = IBDataSetPistas
-    Left = 320
+    Left = 336
     Top = 208
   end
   object IBDataSetComanda: TIBDataSet
@@ -335,15 +339,19 @@ object DataModuleGlobal: TDataModuleGlobal
       '  comanda.id, '
       '  abertura,'
       '  pistas.descricao as pista,'
-      '  valor,'
+      '  sum(valor_item) as valor,'
       '  fechamento'
       'from '
       '  comanda '
       '    join pistas'
-      '      on pistas.id = id_pista')
+      '      on pistas.id = id_pista'
+      '    left join itens_comanda '
+      '      on itens_comanda.id_comanda = comanda.id'
+      'group by'
+      '  1, 2, 3, 5')
     ParamCheck = True
     UniDirectional = False
-    Left = 192
+    Left = 208
     Top = 264
     object IBDataSetComandaID: TIntegerField
       FieldName = 'ID'
@@ -373,7 +381,7 @@ object DataModuleGlobal: TDataModuleGlobal
   end
   object DataSourceComandas: TDataSource
     DataSet = IBDataSetComanda
-    Left = 320
+    Left = 336
     Top = 264
   end
   object IBStoredProcAbrirComanda: TIBStoredProc
@@ -381,7 +389,7 @@ object DataModuleGlobal: TDataModuleGlobal
     Transaction = IBTransaction
     StoredProcName = 'ABREPISTA'
     Left = 64
-    Top = 336
+    Top = 152
     ParamData = <
       item
         DataType = ftInteger
@@ -434,7 +442,7 @@ object DataModuleGlobal: TDataModuleGlobal
     Transaction = IBTransaction
     StoredProcName = 'FECHAPISTA'
     Left = 64
-    Top = 392
+    Top = 208
     ParamData = <
       item
         DataType = ftInteger
@@ -445,6 +453,7 @@ object DataModuleGlobal: TDataModuleGlobal
   object IBDataSetItensComanda: TIBDataSet
     Database = IBDatabase
     Transaction = IBTransaction
+    AfterInsert = IBDataSetItensComandaAfterInsert
     OnCalcFields = IBDataSetItensComandaCalcFields
     BufferChunks = 1000
     CachedUpdates = False
@@ -473,15 +482,15 @@ object DataModuleGlobal: TDataModuleGlobal
       '  itens_comanda'
       '    join itens_bar on itens_bar.id = itens_comanda.id_item'
       'where'
-      '  itens_comanda.id_comanda = :"idComanda"')
+      '  itens_comanda.id_comanda = :"id_comanda"')
     ModifySQL.Strings = (
       
         'update itens_comanda set id_item = :"id_item", qtdade = :"qtdade' +
-        '" where id = :"id"')
+        '", valor_item = :"valor_item" where id = :"id"')
     ParamCheck = True
     UniDirectional = False
-    Left = 304
-    Top = 416
+    Left = 208
+    Top = 344
     object IBDataSetItensComandaID: TIntegerField
       FieldName = 'ID'
       Origin = '"ITENS_COMANDA"."ID"'
@@ -491,6 +500,7 @@ object DataModuleGlobal: TDataModuleGlobal
     object IBDataSetItensComandaID_COMANDA: TIntegerField
       FieldName = 'ID_COMANDA'
       Origin = '"ITENS_COMANDA"."ID_COMANDA"'
+      Required = True
       Visible = False
     end
     object IBDataSetItensComandaID_ITEM: TIntegerField
@@ -522,7 +532,7 @@ object DataModuleGlobal: TDataModuleGlobal
   end
   object DataSourceItensComanda: TDataSource
     DataSet = IBDataSetItensComanda
-    Left = 440
-    Top = 416
+    Left = 336
+    Top = 344
   end
 end

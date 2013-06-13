@@ -16,7 +16,6 @@ type
     btnItens: TButton;
     btnFechar: TButton;
     procedure btnOkClick(Sender: TObject);
-    procedure FormCreate(Sender: TObject);
     procedure btnFecharClick(Sender: TObject);
     procedure btnItensClick(Sender: TObject);
   private
@@ -65,11 +64,6 @@ end;
 procedure TfrmComandas.btnOkClick(Sender: TObject);
 begin
   Close;
-end;
-
-procedure TfrmComandas.FormCreate(Sender: TObject);
-begin
-  DataModuleGlobal.IBDataSetComanda.Open;
 end;
 
 end.

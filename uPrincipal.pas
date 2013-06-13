@@ -16,6 +16,7 @@ type
     procedure btnFuncionariosClick(Sender: TObject);
     procedure btnItensClick(Sender: TObject);
     procedure btnPistasClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -27,7 +28,7 @@ var
 
 implementation
 Uses
-  dmGlobal,
+  dmGlobal, uLogin,
   uClientes, uFuncionarios, uItens, uPistas;
 
 {$R *.dfm}
@@ -49,8 +50,12 @@ end;
 
 procedure TfrmPrincipal.btnPistasClick(Sender: TObject);
 begin
-//Application.MessageBox(PWideChar(DataModuleGlobal.IBDatabase.DatabaseName), 'titu');
-frmPistas.ShowModal;
+  frmPistas.ShowModal;
+end;
+
+procedure TfrmPrincipal.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  frmLogin.Close;
 end;
 
 end.

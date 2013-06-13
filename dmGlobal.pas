@@ -59,6 +59,7 @@ type
     IBDataSetItensComandaitemd: TStringField;
     IBDataSetItensComandaVALOR: TFloatField;
     procedure DataModuleCreate(Sender: TObject);
+    procedure IBDataSetItensComandaAfterInsert(DataSet: TDataSet);
     procedure IBDataSetItensComandaCalcFields(DataSet: TDataSet);
   private
     { Private declarations }
@@ -78,7 +79,6 @@ implementation
 procedure TDataModuleGlobal.DataModuleCreate(Sender: TObject);
 begin
     // garante que estará fechado
-    IBTransaction.Active := false;
     IBDatabase.Close;
 
     // configura o caminho da base com base no caminho da aplicação
@@ -88,7 +88,18 @@ begin
     // abre
     IBDatabase.Open;
 
-    IBTransaction.Active := true;
+    IBDataSet.Open;
+    IBDataSetFuncionario.Open;
+    IBDataSetItens.Open;
+    IBDataSetPistas.Open;
+    IBDataSetComanda.Open;
+    IBDataSetItensComanda.Open;
+end;
+
+procedure TDataModuleGlobal.IBDataSetItensComandaAfterInsert(DataSet: TDataSet);
+begin
+  IBDataSetItensComanda.FieldByName('id_comanda').Value :=
+    IBDataSetItensComanda.ParamByName('id_comanda').Value;
 end;
 
 procedure TDataModuleGlobal.IBDataSetItensComandaCalcFields(DataSet: TDataSet);

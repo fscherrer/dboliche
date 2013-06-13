@@ -12,6 +12,7 @@ type
     btnComandas: TButton;
     procedure btnAbrirComandaClick(Sender: TObject);
     procedure btnComandasClick(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
   public
@@ -23,7 +24,7 @@ var
 
 implementation
 uses
-  uComanda, uComandas;
+  uComanda, uComandas, uLogin;
 
 {$R *.dfm}
 
@@ -35,6 +36,11 @@ end;
 procedure TfrmBoliche.btnComandasClick(Sender: TObject);
 begin
   frmComandas.ShowModal;
+end;
+
+procedure TfrmBoliche.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  frmLogin.Close;
 end;
 
 end.

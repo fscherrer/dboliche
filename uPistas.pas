@@ -15,7 +15,6 @@ type
     lblPistas: TLabel;
     DBRadioGroupDisponivel: TDBRadioGroup;
     DBRadioGroupManutencao: TDBRadioGroup;
-    procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
@@ -35,11 +34,6 @@ dmGlobal;
 procedure TfrmPistas.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   DataModuleGlobal.IBTransaction.CommitRetaining;
-end;
-
-procedure TfrmPistas.FormShow(Sender: TObject);
-begin
-  DataModuleGlobal.IBDataSetPistas.Active := true;
 end;
 
 end.

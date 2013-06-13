@@ -11,7 +11,6 @@ object frmComandas: TfrmComandas
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
-  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object lblListaComanda: TLabel

@@ -225,6 +225,23 @@ select * from cliente_comanda;
 select * from itens_bar;
 select * from funcionarios;
 select * from itens_comanda;
+select * from clientes;
+
+select 
+  comanda.id, 
+  abertura,
+  pistas.descricao as pista,
+  sum(valor_item) as valor,
+  fechamento
+from 
+  comanda 
+    join pistas
+      on pistas.id = id_pista
+    join itens_comanda 
+      on itens_comanda.id_comanda = comanda.id
+group by
+  1, 2, 3, 5
+
 
 delete from cliente_comanda;
 delete from comanda;

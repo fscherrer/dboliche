@@ -86,10 +86,6 @@ var
   i: integer;
   select: string;
 begin
-  // abre os DataSets utilizados
-  DataModuleGlobal.IBDataSetPistas.Open;
-  DataModuleGlobal.IBDataSetComanda.Open;
-
   lookups[1] := DBLookupComboBox1;
   lookups[2] := DBLookupComboBox2;
   lookups[3] := DBLookupComboBox3;
